@@ -1,8 +1,8 @@
 <?php
 
 $servername = "localhost";
-$username = "id21548664_admin";
-$password = "Csce310!";
+$username = "root";
+$password = "";
 $database = "id21548664_csce310";
 
 // Create connection
@@ -13,4 +13,4 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-echo "Connected successfully";
+echo "Connected successfully<br>";
