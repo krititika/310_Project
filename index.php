@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include_once 'includes/DbConnect.php';
 ?>
 <!DOCTYPE html>

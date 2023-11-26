@@ -1,4 +1,6 @@
 <?php
+// startup a new session or resume one
+session_start();
 
 $servername = "localhost";
 $username = "root";
