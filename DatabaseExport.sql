@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 24, 2023 at 07:44 PM
+-- Generation Time: Nov 29, 2023 at 02:19 AM
 -- Server version: 10.5.20-MariaDB
 -- PHP Version: 7.3.33
 
@@ -97,10 +97,10 @@ CREATE TABLE `Class_Enrollment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `College Student`
+-- Table structure for table `College_Student`
 --
 
-CREATE TABLE `College Student` (
+CREATE TABLE `College_Student` (
   `UIN` int(9) NOT NULL,
   `Gender` varchar(20) DEFAULT NULL,
   `Hispanic/Latino` binary(3) DEFAULT NULL,
@@ -239,6 +239,14 @@ INSERT INTO `User` (`UIN`, `First_Name`, `M_Initial`, `Last_Name`, `Username`, `
 (1, 'test', 'e', 'test', NULL, NULL, NULL, NULL, NULL);
 
 --
+-- Triggers `User`
+--
+DELIMITER $$
+CREATE TRIGGER `Delete` BEFORE DELETE ON `User` FOR EACH ROW DELETE FROM College_Student WHERE UIN = old.UIN
+$$
+DELIMITER ;
+
+--
 -- Indexes for dumped tables
 --
 
@@ -281,9 +289,9 @@ ALTER TABLE `Class_Enrollment`
   ADD UNIQUE KEY `Class_ID` (`Class_ID`);
 
 --
--- Indexes for table `College Student`
+-- Indexes for table `College_Student`
 --
-ALTER TABLE `College Student`
+ALTER TABLE `College_Student`
   ADD PRIMARY KEY (`UIN`);
 
 --
@@ -378,9 +386,9 @@ ALTER TABLE `Class_Enrollment`
   MODIFY `CE_Num` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `College Student`
+-- AUTO_INCREMENT for table `College_Student`
 --
-ALTER TABLE `College Student`
+ALTER TABLE `College_Student`
   MODIFY `UIN` int(9) NOT NULL AUTO_INCREMENT;
 
 --
@@ -440,21 +448,21 @@ ALTER TABLE `User`
 --
 ALTER TABLE `Application`
   ADD CONSTRAINT `Application_ibfk_1` FOREIGN KEY (`Program_Num`) REFERENCES `Programs` (`Program_Num`),
-  ADD CONSTRAINT `Application_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `College Student` (`UIN`);
+  ADD CONSTRAINT `Application_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `College_Student` (`UIN`);
 
 --
 -- Constraints for table `Cert_Enrollment`
 --
 ALTER TABLE `Cert_Enrollment`
   ADD CONSTRAINT `Cert_Enrollment_ibfk_1` FOREIGN KEY (`Program_Num`) REFERENCES `Programs` (`Program_Num`),
-  ADD CONSTRAINT `Cert_Enrollment_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `College Student` (`UIN`),
+  ADD CONSTRAINT `Cert_Enrollment_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `College_Student` (`UIN`),
   ADD CONSTRAINT `Cert_Enrollment_ibfk_3` FOREIGN KEY (`Cert_ID`) REFERENCES `Ceritification` (`Cert_ID`);
 
 --
 -- Constraints for table `Class_Enrollment`
 --
 ALTER TABLE `Class_Enrollment`
-  ADD CONSTRAINT `Class_Enrollment_ibfk_1` FOREIGN KEY (`UIN`) REFERENCES `College Student` (`UIN`),
+  ADD CONSTRAINT `Class_Enrollment_ibfk_1` FOREIGN KEY (`UIN`) REFERENCES `College_Student` (`UIN`),
   ADD CONSTRAINT `Class_Enrollment_ibfk_2` FOREIGN KEY (`Class_ID`) REFERENCES `Classes` (`Class_ID`);
 
 --
@@ -481,14 +489,14 @@ ALTER TABLE `Event_Tracking`
 -- Constraints for table `Intern_App`
 --
 ALTER TABLE `Intern_App`
-  ADD CONSTRAINT `Intern_App_ibfk_1` FOREIGN KEY (`UIN`) REFERENCES `College Student` (`UIN`),
+  ADD CONSTRAINT `Intern_App_ibfk_1` FOREIGN KEY (`UIN`) REFERENCES `College_Student` (`UIN`),
   ADD CONSTRAINT `Intern_App_ibfk_2` FOREIGN KEY (`Intern_ID`) REFERENCES `Internship` (`Intern_ID`);
 
 --
 -- Constraints for table `Track`
 --
 ALTER TABLE `Track`
-  ADD CONSTRAINT `Track_ibfk_1` FOREIGN KEY (`Student_Num`) REFERENCES `College Student` (`UIN`),
+  ADD CONSTRAINT `Track_ibfk_1` FOREIGN KEY (`Student_Num`) REFERENCES `College_Student` (`UIN`),
   ADD CONSTRAINT `Track_ibfk_2` FOREIGN KEY (`Program`) REFERENCES `Programs` (`Program_Num`);
 COMMIT;
 
