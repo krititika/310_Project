@@ -1,4 +1,5 @@
 <?php
+    include_once 'includes/startSession.php';
     include_once 'includes/DbConnect.php';
 ?>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="syle.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -21,6 +22,7 @@
         <![endif]-->
         <h1>Main Page</h1>
         <script src="" async defer></script>
+        <a href="programInfo.php">Program Information Management</a>
         <?php echo "hello " . $_SESSION["username"]?>
     </body>
 </html>

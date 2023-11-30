@@ -1,5 +1,6 @@
 <?php
 include_once "includes/definitions.php";
+include_once 'includes/startSession.php';
 include_once "includes/DbConnect.php";
 
 $sql = "SELECT * from user 
