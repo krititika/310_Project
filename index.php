@@ -13,16 +13,18 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser.
-            Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
         <h1>Login</h1>
         <form action="login.php" class="login-section" method="post">
             Username: <input type="text" name="username"><br>
             Password: <input type="password" name="password"><br>
-            <input type="submit">
+            <input type="submit"> <br>
         </form>
+
+        <h2>New User Registration</h2>
+        <form action="registration.php" class="registration-section" method="post">
+         <button>Click here to register as a new user </button> <br>
+        </form>
+        
     </body>
 </html>
