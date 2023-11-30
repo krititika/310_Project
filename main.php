@@ -21,8 +21,8 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <h1>Main Page</h1>
-        <script src="" async defer></script>
-        <a href="programInfo.php">Program Information Management</a>
-        <?php echo "hello " . $_SESSION["username"]?>
+        <?php echo "hello " . $_SESSION["username"]?><br>
+        <a href="programInfo.php">Program Information Management</a><br>
+        <a href="documentUpload.php">Document Upload and Management</a><br>
     </body>
 </html>

@@ -19,66 +19,68 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>Program Information Management</h1>
+        <h1>Document Upload and Management</h1>
         <div>
-            <form action="createProgram.php" class="float-child" method="post">
-                Create Program<br>
-                Name: <input type="text" name="name" required><br>
-                Description: <input type="text" name="description" required><br>
+            <form action="uploadDocument.php" class="float-child" method="post" enctype="multipart/form-data">
+                Upload Document<br>
+                File: <input type="file" name="file" accept=".pdf"required><br>
+                Document Type: <select name="doc_type">
+                    <option value="resume">Resume</option>
+                    <option value="cover_letter">Cover Letter</option>
+                    <option value="letter_of_rec">Letter Of Recomendation</option>
+                    <option value="school_transcript">School Transcript</option>
+                </select>
                 <input type="submit"><br>
                 <?php
-                    $keyName = "createdProgram";
+                    $keyName = "uploadedDocument";
                     if(isset($_SESSION[$keyName])){
                         if($_SESSION[$keyName]){
-                            echo "inserted program";
+                            echo "uploaded Document";
                         }
                         else{
-                            echo "failed to insert program";
+                            echo "failed to upload Document";
                         }
                         unset($_SESSION[$keyName]);
                     }
                 ?>
             </form>
-            <form action="deleteProgram.php" class="float-child" method="post">
-                Delete Program<br>
-                Program id: <input type="number" name="program-id" required><br>
-                Full Delete: <input type="checkbox" name="full-delete"><br>
+            <form action="deleteDocument.php" class="float-child" method="post">
+                Delete Document<br>
+                Document id: <input type="number" name="document-id" required><br>
                 <input type="submit"><br>
                 <?php
-                    $keyName = "deletedProgram";
+                    $keyName = "deletedDocument";
                     if(isset($_SESSION[$keyName])){
                         if($_SESSION[$keyName]){
-                            echo "deleted program";
+                            echo "deleted Document";
                         }
                         else{
-                            echo "failed to delete program";
+                            echo "failed to delete Document";
                         }
                         unset($_SESSION[$keyName]);
                     }
                 ?>
             </form>
-            <form action="updateProgram.php" class="float-child" method="post">
-                Update Program<br>
-                Program id: <input type="number" name="program-id" required><br>
-                New Name: <input type="text" name="name"><br>
-                New Description: <input type="text" name="description"><br>
+            <form action="replaceDocument.php" class="float-child" method="post" enctype="multipart/form-data">
+                Replace Document<br>
+                File: <input type="file" name="file" accept=".pdf"required><br>
+                Document id: <input type="number" name="document-id" required><br>
                 <input type="submit"><br>
                 <?php
-                    $keyName = "updatedProgram";
+                    $keyName = "replacedDocument";
                     if(isset($_SESSION[$keyName])){
                         if($_SESSION[$keyName]){
-                            echo "updated program";
+                            echo "replaced Document";
                         }
                         else{
-                            echo "failed to update program";
+                            echo "failed to replace Document";
                         }
                         unset($_SESSION[$keyName]);
                     }
                 ?>
-            </form>
         </div>
         <?php
-            include_once "displayPrograms.php";
+            include_once "displayDocuments.php";
         ?>
     </body>
 </html>
