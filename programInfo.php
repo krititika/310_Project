@@ -58,6 +58,25 @@
                     }
                 ?>
             </form>
+            <form action="updateProgram.php" class="float-child" method="post">
+                Update Program<br>
+                Program id: <input type="number" name="program-id" required><br>
+                New Name: <input type="text" name="name"><br>
+                New Description: <input type="text" name="description"><br>
+                <input type="submit"><br>
+                <?php
+                    $keyName = "updatedProgram";
+                    if(isset($_SESSION[$keyName])){
+                        if($_SESSION[$keyName]){
+                            echo "updated program";
+                        }
+                        else{
+                            echo "failed to update program";
+                        }
+                        unset($_SESSION[$keyName]);
+                    }
+                ?>
+            </form>
         </div>
         <?php
             include_once "displayPrograms.php";
