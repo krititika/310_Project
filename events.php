@@ -126,7 +126,6 @@
 
 <button id="Add">Add Event</button>
 <button id="Edit">Edit Event</button>
-<button id="Find">Find Event</button>
 <button id="Delete">Delete Event</button>
 
 <?php
