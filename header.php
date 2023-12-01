@@ -34,7 +34,7 @@
 
 <header>
     <button onclick="location.href='users.php'">Users</button>
-    <button onclick="location.href='programs.php'">Programs</button>
+    <button onclick="location.href='programtrack.php'">Programs</button>
     <button onclick="location.href='events.php'">Events</button>
     <button onclick="location.href='documents.php'">Documents</button>
 </header>
