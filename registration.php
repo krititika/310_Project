@@ -42,15 +42,19 @@ include_once 'includes/DbConnect.php';
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        .hideform {
+            display: none;
+        }  
     </style>
     </style>
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <!-- User Registration Form -->
-    <div class="center hideform" id="registrationForm">
-        <form action="includes/add_reg.php" method="POST">
+    <div class="center hideform" id=registrationForm>
+    <button id="closeAdd" style="float: right;">X</button>
+     <form action="includes/add_reg.php" method="POST">
             UIN:<br>
             <input type="number" name="uin" required>
             <br>
@@ -82,6 +86,83 @@ include_once 'includes/DbConnect.php';
         </form>
     </div>
 
+<div class="center hideform" id=updateform>
+<button id="closeEdit" style="float: right;">X</button>
+     <form action="includes/update_reg.php"  method="POST">
+            UIN:<br>
+            <input type="number" name="uin" >
+            <br>
+            First Name:<br>
+            <input type="text" name="firstname" >
+            <br>
+            Middle Initial:<br>
+            <input type="text" name="middleinitial">
+            <br>
+            Last Name:<br>
+            <input type="text" name="lastname" >
+            <br>
+            Username:<br>
+            <input type="text" name="username" >
+            <br>
+            Password:<br>
+            <input type="password" name="password" >
+            <br>
+            User Type:<br>
+            <input type="text" name="usertype" >
+            <br>
+            Email:<br>
+            <input type="email" name="email" >
+            <br>
+            Discord Name:<br>
+            <input type="text" name="discordname">
+            <br><br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
+    <div class="center hideform" id=deleteform>
+    <button id="closeDelete" style="float: right;">X</button>
+    <form action="includes/remove_reg.php" method="POST">
+        Enter the UIN:<br>
+        <input type="number" name="dUIN">
+        <br><br>
+        <input type="submit" value="Delete User">
+    </form>
+</div>
+
+<button id="Add">Add user</button>
+<button id="Edit">Update User Details</button>
+<button id="Delete">Delete User</button>
+
+
+<script>
+$('#Add').on('click', function () {
+    $('#registrationForm').show();
+    $(this).hide();
+})
+$('#closeAdd').on('click', function () {
+    $('#registrationForm').hide();
+    $('#Add').show();
+})
+
+$('#Edit').on('click', function () {
+    $('#updateform').show();
+    $(this).hide();
+})
+$('#closeEdit').on('click', function () {
+    $('#updateform').hide();
+    $('#Edit').show();
+})
+$('#Delete').on('click', function () {
+    $('#deleteform').show();
+    $(this).hide();
+})
+$('#closeDelete').on('click', function () {
+    $('#deleteform').hide();
+    $('#Delete').show();
+})
+</script>
+
     <?php
    $sql = "SELECT * FROM user;";
    $result = mysqli_query($conn, $sql);
@@ -89,13 +170,14 @@ include_once 'includes/DbConnect.php';
    echo "<table border='1'>
            <tr>
                <th>UIN</th>
-               <th>fname</th>
-               <th>mname</th>
-               <th>lname</th>
-               <th>username</th>
-               <th>password</th>
-               <th>emailth>
-               <th>discord</th>
+               <th>First Name</th>
+               <th>Middle Initial</th>
+               <th>Last Name</th>
+               <th>Username</th>
+               <th>Password</th>
+               <th>User Type</th>
+               <th>Email</th>
+               <th>Password</th>
            </tr>";
 
    while($row = mysqli_fetch_assoc($result)) {

@@ -23,8 +23,10 @@
 
         <h2>New User Registration</h2>
         <form action="registration.php" class="registration-section" method="post">
-         <button>Click here to register as a new user </button> <br>
+         <button>Click here to register as a new user or delete an existing user </button> <br>
         </form>
+
+        
         
     </body>
 </html>
