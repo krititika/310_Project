@@ -1,0 +1,20 @@
+<?php
+    include_once 'DbConnect.php';
+
+$uin = $_POST['uin'];
+$firstName = $_POST['firstname'];
+$middleInitial = $_POST['middleinitial'];
+$lastName = $_POST['lastname'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+$userType = $_POST['usertype'];
+$email = $_POST['email'];
+$discordName = $_POST['discordname'];
+
+
+$sql = "INSERT INTO user (uin, firstName, middleInitial, lastName, username, password, usertype, email, discordname) 
+            VALUES ('$uin', '$firstName', '$middleInitial', '$lastName', '$username', '$password', '$userType', '$email', '$discordName')";
+mysqli_query($conn, $sql);
+
+header("Location: ../registration.php?signup=success");
+?>

@@ -1,7 +1,12 @@
+<?php
+include 'header.php';
+include_once 'includes/DbConnect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration Form</title>
     <style>
@@ -38,43 +43,71 @@
             background-color: #45a049;
         }
     </style>
+    </style>
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<h1>User Registration</h1>
-<form action="registration_update.php" method="post">
-    <label for="uin">UIN:</label>
-    <input type="text" id="uin" name="uin" required>
+    <!-- User Registration Form -->
+    <div class="center hideform" id="registrationForm">
+        <form action="includes/add_reg.php" method="POST">
+            UIN:<br>
+            <input type="number" name="uin" required>
+            <br>
+            First Name:<br>
+            <input type="text" name="firstname" required>
+            <br>
+            Middle Initial:<br>
+            <input type="text" name="middleinitial">
+            <br>
+            Last Name:<br>
+            <input type="text" name="lastname" required>
+            <br>
+            Username:<br>
+            <input type="text" name="username" required>
+            <br>
+            Password:<br>
+            <input type="password" name="password" required>
+            <br>
+            User Type:<br>
+            <input type="text" name="usertype" required>
+            <br>
+            Email:<br>
+            <input type="email" name="email" required>
+            <br>
+            Discord Name:<br>
+            <input type="text" name="discordname">
+            <br><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
 
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required>
+    <?php
+   $sql = "SELECT * FROM user;";
+   $result = mysqli_query($conn, $sql);
 
-    <label for="Middle">Middle Initial:</label>
-    <input type="text" id="Middle" name="Middle">
+   echo "<table border='1'>
+           <tr>
+               <th>UIN</th>
+               <th>fname</th>
+               <th>mname</th>
+               <th>lname</th>
+               <th>username</th>
+               <th>password</th>
+               <th>emailth>
+               <th>discord</th>
+           </tr>";
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required>
+   while($row = mysqli_fetch_assoc($result)) {
+       echo "<tr>";
+       foreach ($row as $value) {
+           echo "<td>$value</td>";
+       }
+       echo "</tr>";
+   }
 
-    <label for="userName">User Name:</label>
-    <input type="text" id="userName" name="userName" required>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-
-    <label for="userType">User Type:</label>
-    <select id="userType" name="userType" required>
-        <option value="regular">Student</option>
-        <option value="admin">Administrator</option>
-    </select>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="discordUsername">Discord Username:</label>
-    <input type="text" id="discordUsername" name="discordUsername" required>
-
-    <input type="submit" value="Register">
-</form>
+   echo "</table>";
+?>
 
 </body>
 </html>
