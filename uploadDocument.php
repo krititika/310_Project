@@ -12,7 +12,7 @@
 
 
     $sql = "INSERT INTO Documentation (App_Num, Link, Doc_Type)
-    VALUES (" . 2 . ", \"" . $fullDirectoryPath . "\", \"" . $docType . "\");";
+    VALUES (" . $_POST['app_num'] . ", \"" . $fullDirectoryPath . "\", \"" . $docType . "\");";
 
     $result = mysqli_query($conn, $sql);
 

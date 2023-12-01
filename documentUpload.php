@@ -23,7 +23,8 @@
         <div>
             <form action="uploadDocument.php" class="float-child" method="post" enctype="multipart/form-data">
                 Upload Document<br>
-                File: <input type="file" name="file" accept=".pdf"required><br>
+                File: <input type="file" name="file" accept=".pdf" required><br>
+                Application id: <input type="number" name="app_num" required><br>
                 Document Type: <select name="doc_type">
                     <option value="resume">Resume</option>
                     <option value="cover_letter">Cover Letter</option>
