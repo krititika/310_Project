@@ -130,9 +130,17 @@ include_once 'includes/DbConnect.php';
     </form>
 </div>
 
+<div class="center hideform" id=showform>
+    <button id="closeShow" style="float: right;">X</button>
+    <form action="includes/show_reg.php" method="POST">
+        <input type="submit" value="Show the list of Users">
+    </form>
+</div>
+
 <button id="Add">Add user</button>
 <button id="Edit">Update User Details</button>
 <button id="Delete">Delete User</button>
+<button id="Show">Show User List</button>
 
 
 <script>
@@ -161,35 +169,15 @@ $('#closeDelete').on('click', function () {
     $('#deleteform').hide();
     $('#Delete').show();
 })
+$('#Show').on('click', function () {
+    $('#showform').show();
+    $(this).hide();
+})
+$('#closeShow').on('click', function () {
+    $('#showform').hide();
+    $('#Show').show();
+})
 </script>
-
-    <?php
-   $sql = "SELECT * FROM user;";
-   $result = mysqli_query($conn, $sql);
-
-   echo "<table border='1'>
-           <tr>
-               <th>UIN</th>
-               <th>First Name</th>
-               <th>Middle Initial</th>
-               <th>Last Name</th>
-               <th>Username</th>
-               <th>Password</th>
-               <th>User Type</th>
-               <th>Email</th>
-               <th>Password</th>
-           </tr>";
-
-   while($row = mysqli_fetch_assoc($result)) {
-       echo "<tr>";
-       foreach ($row as $value) {
-           echo "<td>$value</td>";
-       }
-       echo "</tr>";
-   }
-
-   echo "</table>";
-?>
 
 </body>
 </html>

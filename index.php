@@ -21,9 +21,9 @@
             <input type="submit"> <br>
         </form>
 
-        <h2>New User Registration</h2>
+        <h2>User Authentication and Roles</h2>
         <form action="registration.php" class="registration-section" method="post">
-         <button>Click here to register as a new user or delete an existing user </button> <br>
+         <button> User Authentication and Roles</button> <br>
         </form>
 
         
