@@ -50,7 +50,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <div class="center hideform" id=addform>
-    <button id="close" style="float: right;">X</button>
+    <button id="aclose" style="float: right;">X</button>
     <form action="includes/addevent.php" method="POST">
         Event Type:<br>
         <input type="text" name="aeventtype">
@@ -81,7 +81,7 @@
 </div>
 
 <div class="center hideform" id=editform>
-    <button id="close" style="float: right;">X</button>
+    <button id="eclose" style="float: right;">X</button>
     <form action="includes/editevent.php" method="POST">
         Event ID:<br>
         <input type="number" name="eeventID">
@@ -115,7 +115,7 @@
 </div>
 
 <div class="center hideform" id=deleteform>
-    <button id="close" style="float: right;">X</button>
+    <button id="dclose" style="float: right;">X</button>
     <form action="includes/deleteevent.php" method="POST">
         Event ID:<br>
         <input type="number" name="deventID">
@@ -160,7 +160,7 @@ $('#Add').on('click', function () {
     $('#addform').show();
     $(this).hide();
 })
-$('#close').on('click', function () {
+$('#aclose').on('click', function () {
     $('#addform').hide();
     $('#Add').show();
 })
@@ -169,7 +169,7 @@ $('#Edit').on('click', function () {
     $('#editform').show();
     $(this).hide();
 })
-$('#close').on('click', function () {
+$('#eclose').on('click', function () {
     $('#editform').hide();
     $('#Edit').show();
 })
@@ -178,7 +178,7 @@ $('#Delete').on('click', function () {
     $('#deleteform').show();
     $(this).hide();
 })
-$('#close').on('click', function () {
+$('#dclose').on('click', function () {
     $('#deleteform').hide();
     $('#Delete').show();
 })
