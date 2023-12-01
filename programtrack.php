@@ -34,99 +34,202 @@
         button:hover {
             background-color: #C3B1E1;
         }
-        .center {
+
+        .form {
             display:flex;
-            justify-content:space-between;
+            flex-direction: row;
             margin: auto;
             width: 60%;
             padding: 20px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        .center > div {
-            width: 30%;
-            box-sizing: border-box;
-            padding: 10px;
+        .table {
+            display:flex;
+            flex-direction: column;
+            margin: auto;
+            width: 100%;
         }
 
-        .hideform {
-            display: none;
-        }    
+        .left-column,
+        .middle-column,
+        .right-column {
+            flex: 1;
+            padding: 20px;
+        }
+  
 
     </style>
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<div class = "center hideform" id=courseform>
-    <button id="aclose" style="float: right;">X</button>
+<div class = "form" style="display: None;" id=courseform>
     <div class = "left-column">
-        <form action="includes/addevent.php" method="POST">
-            Event Type:<br>
-            <input type="text" name="aeventtype">
-            <br>
+        <form action="includes/addcoursetrac.php" method="POST">
             UIN:<br>
-            <input type="number" name="auin" value="Add UIN">
+            <input type="number" name="acluin">
             <br>
-            Program Number:<br>
-            <input type="number" name="aprogramnum">
+            Class ID:<br>
+            <input type="number" name="aclclassid">
             <br>
-            Start Date:<br>
-            <input type="date" name="astartdate">
+            Status:<br>
+            <input type="text" name="aclstatus">
             <br>
-            End Date:<br>
-            <input type="date" name="aenddate">
+            Semester:<br>
+            <input type="test" name="aclsemester">
             <br>
-            Start Time:<br>
-            <input type="time" name="astarttime">
-            <br>
-            End Time:<br>
-            <input type="time" name="aendtime">
-            <br>
-            Location:<br>
-            <input type="text" name="alocation">
+            Year:<br>
+            <input type="number" name="aclyear">
             <br><br>
-            <button type="submit" name="submit">Add Event</button>
+            <button type="submit" name="submit">Add Course Evaluation</button>
         </form>
     </div>
     <div class = "middle-column">
-        <form action="includes/editevent.php" method="POST">
-            Event ID:<br>
-            <input type="number" name="eeventID">
-            <br>
-            Event Type:<br>
-            <input type="text" name="eeventtype">
+        <form action="includes/editcoursetrack.php" method="POST">
+            Course Number:<br>
+            <input type="number" name="eclcoursenum">
             <br>
             UIN:<br>
-            <input type="number" name="euin" value="Add UIN">
+            <input type="number" name="ecluin">
             <br>
-            Program Number:<br>
-            <input type="number" name="eprogramnum">
+            Class ID:<br>
+            <input type="number" name="eclclassid">
             <br>
-            Start Date:<br>
-            <input type="date" name="estartdate">
+            Status:<br>
+            <input type="text" name="eclstatus">
             <br>
-            End Date:<br>
-            <input type="date" name="eenddate">
+            Semester:<br>
+            <input type="test" name="eclsemester">
             <br>
-            Start Time:<br>
-            <input type="time" name="estarttime">
-            <br>
-            End Time:<br>
-            <input type="time" name="eendtime">
-            <br>
-            Location:<br>
-            <input type="text" name="elocation">
+            Year:<br>
+            <input type="number" name="eclyear">
             <br><br>
-            <button type="submit" name="submit">Edit Event</button>
+            <button type="submit" name="submit">Edit Course Evaluation</button>
         </form>
     </div>
-    <div class = "right-column">
-        <form action="includes/deleteevent.php" method="POST">
-            Event ID:<br>
-            <input type="number" name="deventID">
+    <div class="right-column">
+        <button id="clclose" style="float: right;">X</button>
+        <form action="includes/deletecoursetrack.php" method="POST">
+            Course Number:<br>
+            <input type="number" name="dclcoursenum">
             <br><br>
-            <button type="submit" name="submit">Delete Event</button>
+            <button type="submit" name="submit">Delete Course Progress</button>
+        </form>
+    </div>
+</div>
+
+<div class = "form" style="display: None;" id=internform>
+    <div class = "left-column">
+        <form action="includes/addinterntrac.php" method="POST">
+            UIN:<br>
+            <input type="number" name="aiuin">
+            <br>
+            Intern ID:<br>
+            <input type="number" name="aiinternid">
+            <br>
+            Status:<br>
+            <input type="text" name="aistatus">
+            <br>
+            Year:<br>
+            <input type="number" name="aiyear">
+            <br><br>
+            <button type="submit" name="submit">Add Internship App</button>
+        </form>
+    </div>
+    <div class = "middle-column">
+        <form action="includes/editinterntrack.php" method="POST">
+            Intern App Number:<br>
+            <input type="number" name="eiinternappnum">
+            <br>
+            UIN:<br>
+            <input type="number" name="eiuin">
+            <br>
+            Intern ID:<br>
+            <input type="number" name="eiinternid">
+            <br>
+            Status:<br>
+            <input type="text" name="eistatus">
+            <br>
+            Year:<br>
+            <input type="number" name="eiyear">
+            <br><br>
+            <button type="submit" name="submit">Edit Internship App</button>
+        </form>
+    </div>
+    <div class="right-column">
+        <button id="iclose" style="float: right;">X</button>
+        <form action="includes/deleteinterntrack.php" method="POST">
+            Internship App Number:<br>
+            <input type="number" name="diinternappnum">
+            <br><br>
+            <button type="submit" name="submit">Delete Internship App</button>
+        </form>
+    </div>
+</div>
+
+<div class = "form" style="display: None;" id=certform>
+    <div class = "left-column">
+        <form action="includes/addcerttrac.php" method="POST">
+            UIN:<br>
+            <input type="number" name="acuin">
+            <br>
+            Certification ID:<br>
+            <input type="number" name="accertid">
+            <br>
+            Program Number:<br>
+            <input type="number" name="acprognum">
+            <br>
+            Status:<br>
+            <input type="text" name="acstatus">
+            <br>
+            Training Status:<br>
+            <input type="text" name="actrainingstatus">
+            <br>
+            Semester:<br>
+            <input type="text" name="acsemester">
+            <br>
+            Year:<br>
+            <input type="number" name="acyear">
+            <br><br>
+            <button type="submit" name="submit">Add Certification Enrollment</button>
+        </form>
+    </div>
+    <div class = "middle-column">
+    <form action="includes/editcerttrac.php" method="POST">
+            Certification Enrollment Number:<br>
+            <input type="number" name="eccertenrollnum">
+            <br>
+            UIN:<br>
+            <input type="number" name="ecuin">
+            <br>
+            Certification ID:<br>
+            <input type="number" name="eccertid">
+            <br>
+            Program Number:<br>
+            <input type="number" name="ecprognum">
+            <br>
+            Status:<br>
+            <input type="text" name="ecstatus">
+            <br>
+            Training Status:<br>
+            <input type="text" name="ectrainingstatus">
+            <br>
+            Semester:<br>
+            <input type="text" name="ecsemester">
+            <br>
+            Year:<br>
+            <input type="number" name="ecyear">
+            <br><br>
+            <button type="submit" name="submit">Edit Certification Enrollment</button>
+        </form>
+    </div>
+    <div class="right-column">
+        <button id="cclose" style="float: right;">X</button>
+        <form action="includes/deletecerttrack.php" method="POST">
+            Certification Enrollment Number:<br>
+            <input type="number" name="dccertenrollnum">
+            <br><br>
+            <button type="submit" name="submit">Delete Certification Enrollment</button>
         </form>
     </div>
 </div>
@@ -135,59 +238,114 @@
 <button id="intern">Internships</button>
 <button id="cert">Certifications</button>
 
-<?php
-   $sql = "SELECT * FROM event;";
-   $result = mysqli_query($conn, $sql);
+<div class = "table" id=programtracksql>
+    <div class = "left-column">
+        <?php
+            $sql = "SELECT * FROM class_enrollment;";
+            $result = mysqli_query($conn, $sql);
 
-   echo "<table border='1'>
-           <tr>
-               <th>Event ID</th>
-               <th>UIN</th>
-               <th>Program Number</th>
-               <th>Start Date</th>
-               <th>Start Time</th>
-               <th>Location</th>
-               <th>End Date</th>
-               <th>End Time</th>
-               <th>Event Name</th>
-           </tr>";
+            echo "<table border='1'>
+                <tr>
+                    <th>Course Number</th>
+                    <th>UIN</th>
+                    <th>Class ID</th>
+                    <th>Status</th>
+                    <th>Semester</th>
+                    <th>Year</th>
+                </tr>";
 
-   while($row = mysqli_fetch_assoc($result)) {
-       echo "<tr>";
-       foreach ($row as $value) {
-           echo "<td>$value</td>";
-       }
-       echo "</tr>";
-   }
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                foreach ($row as $value) {
+                    echo "<td>$value</td>";
+                }
+                echo "</tr>";
+            }
 
-   echo "</table>";
-?>
+            echo "</table>";
+        ?>
+    </div>
+    <div class = "middle-column">
+        <?php
+            $sql = "SELECT * FROM intern_app;";
+            $result = mysqli_query($conn, $sql);
+
+            echo "<table border='1'>
+                <tr>
+                    <th>Internship App Num</th>
+                    <th>UIN</th>
+                    <th>Intern ID</th>
+                    <th>Status</th>
+                    <th>Year</th>
+                </tr>";
+
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                foreach ($row as $value) {
+                    echo "<td>$value</td>";
+                }
+                echo "</tr>";
+            }
+
+            echo "</table>";
+        ?>
+    </div>
+    <div class = "right-column">
+        <?php
+            $sql = "SELECT * FROM cert_enrollment;";
+            $result = mysqli_query($conn, $sql);
+
+            echo "<table border='1'>
+                <tr>
+                    <th>Certification Enrollment Number</th>
+                    <th>UIN</th>
+                    <th>Certification ID</th>
+                    <th>Program Number</th>
+                    <th>Status</th>
+                    <th>Training Status</th>
+                    <th>Semester</th>
+                    <th>Year</th>
+                </tr>";
+
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                foreach ($row as $value) {
+                    echo "<td>$value</td>";
+                }
+                echo "</tr>";
+            }
+
+            echo "</table>";
+        ?>
+    </div>
+</div>
+
 <script>
 $('#course').on('click', function () {
     $('#courseform').show();
     $(this).hide();
 })
-$('#aclose').on('click', function () {
-    $('#addform').hide();
-    $('#Add').show();
+$('#clclose').on('click', function () {
+    $('#courseform').hide();
+    $('#course').show();
 })
 
-$('#Edit').on('click', function () {
-    $('#editform').show();
+$('#intern').on('click', function () {
+    $('#internform').show();
     $(this).hide();
 })
-$('#eclose').on('click', function () {
-    $('#editform').hide();
-    $('#Edit').show();
+$('#iclose').on('click', function () {
+    $('#internform').hide();
+    $('#intern').show();
 })
 
-$('#Delete').on('click', function () {
-    $('#deleteform').show();
+$('#cert').on('click', function () {
+    $('#certform').show();
     $(this).hide();
 })
-$('#dclose').on('click', function () {
-    $('#deleteform').hide();
-    $('#Delete').show();
+$('#cclose').on('click', function () {
+    $('#certform').hide();
+    $('#cert').show();
 })
 </script>
 
