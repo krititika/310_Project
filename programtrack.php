@@ -137,7 +137,7 @@
         </form>
     </div>
     <div class = "middle-column">
-        <form action="includes/editinterntrack.php" method="POST">
+        <form action="includes/editinterntrac.php" method="POST">
             Intern App Number:<br>
             <input type="number" name="eiinternappnum">
             <br>
@@ -158,7 +158,7 @@
     </div>
     <div class="right-column">
         <button id="iclose" style="float: right;">X</button>
-        <form action="includes/deleteinterntrack.php" method="POST">
+        <form action="includes/deleteinterntrac.php" method="POST">
             Internship App Number:<br>
             <input type="number" name="diinternappnum">
             <br><br>
