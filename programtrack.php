@@ -85,7 +85,7 @@
         </form>
     </div>
     <div class = "middle-column">
-        <form action="includes/editcoursetrack.php" method="POST">
+        <form action="includes/editcoursetrac.php" method="POST">
             Course Number:<br>
             <input type="number" name="eclcoursenum">
             <br>
@@ -109,7 +109,7 @@
     </div>
     <div class="right-column">
         <button id="clclose" style="float: right;">X</button>
-        <form action="includes/deletecoursetrack.php" method="POST">
+        <form action="includes/deletecoursetrac.php" method="POST">
             Course Number:<br>
             <input type="number" name="dclcoursenum">
             <br><br>
@@ -225,7 +225,7 @@
     </div>
     <div class="right-column">
         <button id="cclose" style="float: right;">X</button>
-        <form action="includes/deletecerttrack.php" method="POST">
+        <form action="includes/deletecerttrac.php" method="POST">
             Certification Enrollment Number:<br>
             <input type="number" name="dccertenrollnum">
             <br><br>

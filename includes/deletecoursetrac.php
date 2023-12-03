@@ -1,10 +1,10 @@
 <?php
     include_once 'DbConnect.php';
 
-    $ianum = $_POST['diinternappnum'];
+    $coursenum = $_POST['dclcoursenum'];
 
-    $sql = "DELETE FROM intern_app 
-    WHERE IA_Num = '$ianum'";
+    $sql = "DELETE FROM class_enrollment 
+    WHERE CE_Num = '$coursenum'";
     mysqli_query($conn, $sql);
 
     header("Location: ../programtrack.php?signup=success");

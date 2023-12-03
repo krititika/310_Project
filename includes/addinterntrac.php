@@ -1,19 +1,14 @@
 <?php
     include_once 'DbConnect.php';
 
-    $uin = $_POST['auin'];
-    $program = $_POST['aprogramnum'];
-    $startd = $_POST['astartdate'];
-    $endd = $_POST['aenddate'];
-    $startt = $_POST['astarttime'];
-    $endt = $_POST['aendtime'];
-    $loc = $_POST['alocation'];
-    $type = $_POST['aeventtype'];
+    $uin = $_POST['aiuin'];
+    $internid = $_POST['aiinternid'];
+    $status = $_POST['aistatus'];
+    $year = $_POST['aiyear'];
 
-    $sql = "INSERT INTO event (UIN, Program_Num, Start_Date, Time_Start,
-     Location, End_Date, Time_end, Event_Type) VALUES ('$uin','$program',
-     '$startd','$startt','$loc','$endd','$endt','$type')";
+    $sql = "INSERT INTO intern_app (UIN, Intern_ID, Status, Year) 
+    VALUES ('$uin','$internid','$status','$year')";
     mysqli_query($conn, $sql);
 
-    header("Location: ../events.php?signup=success");
+    header("Location: ../programtrack.php?signup=success");
 ?>
