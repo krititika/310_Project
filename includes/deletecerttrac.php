@@ -1,11 +1,11 @@
 <?php
     include_once 'DbConnect.php';
 
-    $id = $_POST['deventID'];
+    $certnum = $_POST['dccertenrollnum'];
 
-    $sql = "DELETE FROM event 
-    WHERE Event_ID = '$id'";
+    $sql = "DELETE FROM cert_enrollment
+    WHERE CertE_Num = '$certnum'";
     mysqli_query($conn, $sql);
 
-    header("Location: ../events.php?signup=success");
+    header("Location: ../programtrack.php?signup=success");
 ?>

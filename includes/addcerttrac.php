@@ -1,19 +1,18 @@
 <?php
     include_once 'DbConnect.php';
 
-    $uin = $_POST['auin'];
-    $program = $_POST['aprogramnum'];
-    $startd = $_POST['astartdate'];
-    $endd = $_POST['aenddate'];
-    $startt = $_POST['astarttime'];
-    $endt = $_POST['aendtime'];
-    $loc = $_POST['alocation'];
-    $type = $_POST['aeventtype'];
+    $uin = $_POST['acuin'];
+    $certid = $_POST['accertid'];
+    $program = $_POST['acprognum'];
+    $status = $_POST['acstatus'];
+    $trainingstatus = $_POST['actrainingstatus'];
+    $semester = $_POST['acsemester'];
+    $year = $_POST['acyear'];
 
-    $sql = "INSERT INTO event (UIN, Program_Num, Start_Date, Time_Start,
-     Location, End_Date, Time_end, Event_Type) VALUES ('$uin','$program',
-     '$startd','$startt','$loc','$endd','$endt','$type')";
+    $sql = "INSERT INTO cert_enrollment (UIN, Cert_ID, Program_Num,
+     Status,Training_Status, Semester, Year) VALUES ('$uin','$certid',
+     '$program','$status','$trainingstatus','$semester','$year')";
     mysqli_query($conn, $sql);
 
-    header("Location: ../events.php?signup=success");
+    header("Location: ../programtrack.php?signup=success");
 ?>

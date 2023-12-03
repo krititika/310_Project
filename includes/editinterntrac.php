@@ -1,22 +1,17 @@
 <?php
     include_once 'DbConnect.php';
 
-    $id = $_POST['eeventID'];
-    $uin = $_POST['euin'];
-    $program = $_POST['eprogramnum'];
-    $startd = $_POST['estartdate'];
-    $endd = $_POST['eenddate'];
-    $startt = $_POST['estarttime'];
-    $endt = $_POST['eendtime'];
-    $loc = $_POST['elocation'];
-    $type = $_POST['eeventtype'];
+    $ianum = $_POST['eiinternappnum'];
+    $uin = $_POST['eiuin'];
+    $internid = $_POST['eiinternid'];
+    $status = $_POST['eistatus'];
+    $year = $_POST['eiyear'];
 
-    $sql = "UPDATE event 
-    SET UIN = '$uin', Program_Num = '$program', Start_Date = '$startd',
-    Time_Start = '$startt', Location = '$loc', End_Date = '$endd', 
-    Time_End = '$endt', Event_Type = '$type' 
-    WHERE Event_ID = '$id'";
+    $sql = "UPDATE intern_app 
+    SET UIN = '$uin', Intern_ID = '$internid', Status = '$status',
+    Year = '$year'
+    WHERE IA_Num = '$ianum'";
     mysqli_query($conn, $sql);
 
-    header("Location: ../events.php?signup=success");
+    header("Location: ../programtrack.php?signup=success");
 ?>
