@@ -21,9 +21,14 @@
             <input type="submit"> <br>
         </form>
 
-        <h2>User Authentication and Roles</h2>
-        <form action="registration.php" class="registration-section" method="post">
-         <button> User Authentication and Roles</button> <br>
+        <h2>Admin</h2>
+        <form action="admin.php" class="registration-section" method="post">
+         <button> Admin User Authentication and Roles</button> <br>
+        </form>
+
+        <h2>Student</h2>
+        <form action="student.php" class="registration-section" method="post">
+         <button> Student User Authentication and Roles</button> <br>
         </form>
 
         

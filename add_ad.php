@@ -1,5 +1,6 @@
 <?php
-include_once 'DbConnect.php';
+include_once "includes/definitions.php";
+include_once "includes/DbConnect.php";
 
 $auin = $_POST['uin'];
 $afirstName = $_POST['firstname'];
@@ -17,6 +18,6 @@ $sql = "INSERT INTO user (UIN, First_Name, M_Initial, Last_Name, Username, Passw
 mysqli_query($conn, $sql);
 
 
-header("Location: ../registration.php?signup=success");
+header("Location: admin.php");
 ?>
 

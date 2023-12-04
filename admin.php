@@ -54,30 +54,30 @@ include_once 'includes/DbConnect.php';
     <!-- User Registration Form -->
     <div class="center hideform" id=registrationForm>
     <button id="closeAdd" style="float: right;">X</button>
-     <form action="includes/add_reg.php" method="POST">
+     <form action="add_ad.php" method="POST">
             UIN:<br>
-            <input type="number" name="uin" required>
+            <input type="number" name="uin" >
             <br>
             First Name:<br>
-            <input type="text" name="firstname" required>
+            <input type="text" name="firstname" >
             <br>
             Middle Initial:<br>
             <input type="text" name="middleinitial">
             <br>
             Last Name:<br>
-            <input type="text" name="lastname" required>
+            <input type="text" name="lastname" >
             <br>
             Username:<br>
-            <input type="text" name="username" required>
+            <input type="text" name="username" >
             <br>
             Password:<br>
-            <input type="password" name="password" required>
+            <input type="password" name="password" >
             <br>
             User Type:<br>
-            <input type="text" name="usertype" required>
+            <input type="text" name="usertype" >
             <br>
             Email:<br>
-            <input type="email" name="email" required>
+            <input type="email" name="email" >
             <br>
             Discord Name:<br>
             <input type="text" name="discordname">
@@ -88,7 +88,7 @@ include_once 'includes/DbConnect.php';
 
 <div class="center hideform" id=updateform>
 <button id="closeEdit" style="float: right;">X</button>
-     <form action="includes/update_reg.php"  method="POST">
+     <form action="update_ad.php"  method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -122,7 +122,7 @@ include_once 'includes/DbConnect.php';
 
     <div class="center hideform" id=deleteform>
     <button id="closeDelete" style="float: right;">X</button>
-    <form action="includes/remove_reg.php" method="POST">
+    <form action="remove_ad.php" method="POST">
         Enter the UIN:<br>
         <input type="number" name="dUIN">
         <br><br>
@@ -132,7 +132,7 @@ include_once 'includes/DbConnect.php';
 
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
-    <form action="includes/show_reg.php" method="POST">
+    <form action="show_ad.php" method="POST">
         <input type="submit" value="Show the list of Users">
     </form>
 </div>
@@ -178,6 +178,41 @@ $('#closeShow').on('click', function () {
     $('#Show').show();
 })
 </script>
+
+<br>
+<br>
+
+<?php
+
+   $sql = "SELECT * FROM user;";
+   $result = mysqli_query($conn, $sql);
+
+   echo "<table border='1'>
+           <tr>
+               <th>UIN</th>
+               <th>First Name</th>
+               <th>Middle Initial</th>
+               <th>Last Name</th>
+               <th>Username</th>
+               <th>Password</th>
+               <th>User Type</th>
+               <th>Email</th>
+               <th>Password</th>
+           </tr>";
+
+   while($row = mysqli_fetch_assoc($result)) {
+       echo "<tr>";
+       foreach ($row as $value) {
+           echo "<td>$value</td>";
+       }
+       echo "</tr>";
+   }
+
+   echo "</table>";
+
+   header("Location: ../admin.php?signup=success");
+
+?>
 
 </body>
 </html>

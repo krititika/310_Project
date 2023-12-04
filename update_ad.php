@@ -1,5 +1,6 @@
 <?php
-include_once 'DbConnect.php';
+include_once "includes/definitions.php";
+include_once "includes/DbConnect.php";
 
 $auin = $_POST['uin'];
 $afirstName = $_POST['firstname'];
@@ -18,5 +19,5 @@ User_Type = '$auserType', Email = '$aemail' , Discord_Name = '$adiscordName'
 WHERE UIN = '$auin'";
 mysqli_query($conn, $sql);
 
-header("Location: ../registration.php?signup=success");
+header("Location: admin.php");
 ?>

@@ -1,6 +1,9 @@
 <?php
 
-    include_once 'DbConnect.php';
+include_once "includes/definitions.php";
+include_once "includes/DbConnect.php";
+
+   include_once 'DbConnect.php';
    $sql = "SELECT * FROM user;";
    $result = mysqli_query($conn, $sql);
 
