@@ -1,7 +1,7 @@
 <?php
     include_once 'DbConnect.php';
 
-    $certnum = $_POST['dccertenrollnum'];
+    $certnum = mysqli_real_escape_string($conn,$_POST['dccertenrollnum']);
 
     $sql = "DELETE FROM cert_enrollment
     WHERE CertE_Num = '$certnum'";

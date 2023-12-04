@@ -1,7 +1,7 @@
 <?php
     include_once 'DbConnect.php';
 
-    $coursenum = $_POST['dclcoursenum'];
+    $coursenum = mysqli_real_escape_string($conn,$_POST['dclcoursenum']);
 
     $sql = "DELETE FROM class_enrollment 
     WHERE CE_Num = '$coursenum'";

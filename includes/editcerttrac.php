@@ -1,14 +1,14 @@
 <?php
     include_once 'DbConnect.php';
 
-    $certnum = $_POST['eccertenrollnum'];
-    $uin = $_POST['ecuin'];
-    $certid = $_POST['eccertid'];
-    $program = $_POST['ecprognum'];
-    $status = $_POST['ecstatus'];
-    $trainingstatus = $_POST['ectrainingstatus'];
-    $semester = $_POST['ecsemester'];
-    $year = $_POST['ecyear'];
+    $certnum = mysqli_real_escape_string($conn,$_POST['eccertenrollnum']);
+    $uin = mysqli_real_escape_string($conn,$_POST['ecuin']);
+    $certid = mysqli_real_escape_string($conn,$_POST['eccertid']);
+    $program = mysqli_real_escape_string($conn,$_POST['ecprognum']);
+    $status = mysqli_real_escape_string($conn,$_POST['ecstatus']);
+    $trainingstatus = mysqli_real_escape_string($conn,$_POST['ectrainingstatus']);
+    $semester = mysqli_real_escape_string($conn,$_POST['ecsemester']);
+    $year = mysqli_real_escape_string($conn,$_POST['ecyear']);
 
     $sql = "UPDATE cert_enrollment 
     SET UIN = '$uin', Cert_ID = '$certid', Program_Num = '$program',

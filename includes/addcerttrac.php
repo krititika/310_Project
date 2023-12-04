@@ -1,13 +1,13 @@
 <?php
     include_once 'DbConnect.php';
 
-    $uin = $_POST['acuin'];
-    $certid = $_POST['accertid'];
-    $program = $_POST['acprognum'];
-    $status = $_POST['acstatus'];
-    $trainingstatus = $_POST['actrainingstatus'];
-    $semester = $_POST['acsemester'];
-    $year = $_POST['acyear'];
+    $uin = mysqli_real_escape_string($conn,$_POST['acuin']);
+    $certid = mysqli_real_escape_string($conn,$_POST['accertid']);
+    $program = mysqli_real_escape_string($conn,$_POST['acprognum']);
+    $status = mysqli_real_escape_string($conn,$_POST['acstatus']);
+    $trainingstatus = mysqli_real_escape_string($conn,$_POST['actrainingstatus']);
+    $semester = mysqli_real_escape_string($conn,$_POST['acsemester']);
+    $year = mysqli_real_escape_string($conn,$_POST['acyear']);
 
     $sql = "INSERT INTO cert_enrollment (UIN, Cert_ID, Program_Num,
      Status,Training_Status, Semester, Year) VALUES ('$uin','$certid',

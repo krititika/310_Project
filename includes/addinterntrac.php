@@ -1,10 +1,10 @@
 <?php
     include_once 'DbConnect.php';
 
-    $uin = $_POST['aiuin'];
-    $internid = $_POST['aiinternid'];
-    $status = $_POST['aistatus'];
-    $year = $_POST['aiyear'];
+    $uin = mysqli_real_escape_string($conn,$_POST['aiuin']);
+    $internid = mysqli_real_escape_string($conn,$_POST['aiinternid']);
+    $status = mysqli_real_escape_string($conn,$_POST['aistatus']);
+    $year = mysqli_real_escape_string($conn,$_POST['aiyear']);
 
     $sql = "INSERT INTO intern_app (UIN, Intern_ID, Status, Year) 
     VALUES ('$uin','$internid','$status','$year')";

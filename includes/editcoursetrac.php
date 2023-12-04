@@ -1,12 +1,12 @@
 <?php
     include_once 'DbConnect.php';
 
-    $coursenum = $_POST['eclcoursenum'];
-    $uin = $_POST['ecluin'];
-    $classid = $_POST['eclclassid'];
-    $status = $_POST['eclstatus'];
-    $semester = $_POST['eclsemester'];
-    $year = $_POST['eclyear'];
+    $coursenum = mysqli_real_escape_string($conn,$_POST['eclcoursenum']);
+    $uin = mysqli_real_escape_string($conn,$_POST['ecluin']);
+    $classid = mysqli_real_escape_string($conn,$_POST['eclclassid']);
+    $status = mysqli_real_escape_string($conn,$_POST['eclstatus']);
+    $semester = mysqli_real_escape_string($conn,$_POST['eclsemester']);
+    $year = mysqli_real_escape_string($conn,$_POST['eclyear']);
 
     $sql = "UPDATE class_enrollment 
     SET UIN = '$uin', Class_ID = '$classid', Status = '$status',
