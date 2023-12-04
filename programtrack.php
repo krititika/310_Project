@@ -241,14 +241,15 @@
 <div class = "table" id=programtracksql>
     <div class = "left-column">
         <?php
-            $sql = "SELECT * FROM class_enrollment;";
+            $sql = "SELECT * FROM ClassName
+            WHERE UIN = 0;";
             $result = mysqli_query($conn, $sql);
 
             echo "<table border='1'>
                 <tr>
                     <th>Course Number</th>
                     <th>UIN</th>
-                    <th>Class ID</th>
+                    <th>Class</th>
                     <th>Status</th>
                     <th>Semester</th>
                     <th>Year</th>
@@ -267,7 +268,8 @@
     </div>
     <div class = "middle-column">
         <?php
-            $sql = "SELECT * FROM intern_app;";
+            $sql = "SELECT * FROM intern_app
+            WHERE UIN = 0;";
             $result = mysqli_query($conn, $sql);
 
             echo "<table border='1'>
@@ -292,7 +294,8 @@
     </div>
     <div class = "right-column">
         <?php
-            $sql = "SELECT * FROM cert_enrollment;";
+            $sql = "SELECT * FROM cert_enrollment
+            WHERE UIN = 0;";
             $result = mysqli_query($conn, $sql);
 
             echo "<table border='1'>
