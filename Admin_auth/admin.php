@@ -54,7 +54,7 @@ include_once 'includes/DbConnect.php';
     <!-- User Registration Form -->
     <div class="center hideform" id=registrationForm>
     <button id="closeAdd" style="float: right;">X</button>
-     <form action="add_ad.php" method="POST">
+     <form action="Admin_auth/add_ad.php" method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -88,7 +88,7 @@ include_once 'includes/DbConnect.php';
 
 <div class="center hideform" id=updateform>
 <button id="closeEdit" style="float: right;">X</button>
-     <form action="update_ad.php"  method="POST">
+     <form action="Admin_auth/update_ad.php"  method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -121,7 +121,7 @@ include_once 'includes/DbConnect.php';
     </div>
 
     <div class="center hideform" id=deleteform>
-    <button id="closeDelete" style="float: right;">X</button>
+    <button id="Admin_auth/closeDelete" style="float: right;">X</button>
     <form action="remove_ad.php" method="POST">
         Enter the UIN:<br>
         <input type="number" name="dUIN">
@@ -132,15 +132,15 @@ include_once 'includes/DbConnect.php';
 
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
-    <form action="show_ad.php" method="POST">
+    <form action="Admin_auth/show_ad.php" method="POST">
         <input type="submit" value="Show the list of Users">
     </form>
 </div>
 
-<button id="Add">Add user</button>
-<button id="Edit">Update User Details</button>
-<button id="Delete">Delete User</button>
-<button id="Show">Show User List</button>
+<button id="Add">Add new admin</button>
+<button id="Edit">Update admin details</button>
+<button id="Delete">Delete admin</button>
+<button id="Show">Show Admin List</button>
 
 
 <script>

@@ -1,3 +1,6 @@
+<?php
+    include_once 'includes/DbConnect.php';
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -22,12 +25,12 @@
         </form>
 
         <h2>Admin</h2>
-        <form action="admin.php" class="registration-section" method="post">
+        <form action="Admin_auth/admin.php" class="registration-section" method="post">
          <button> Admin User Authentication and Roles</button> <br>
         </form>
 
         <h2>Student</h2>
-        <form action="student.php" class="registration-section" method="post">
+        <form action="Student_auth/student.php" class="registration-section" method="post">
          <button> Student User Authentication and Roles</button> <br>
         </form>
 

@@ -1,6 +1,7 @@
 <?php
-include 'header.php';
-include_once 'includes/DbConnect.php';
+
+include_once "includes/definitions.php";
+include_once "includes/DbConnect.php";
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ include_once 'includes/DbConnect.php';
     <!-- User Registration Form -->
     <div class="center hideform" id=registrationForm>
     <button id="closeAdd" style="float: right;">X</button>
-     <form action="add_stu.php" method="POST">
+     <form action="Student_auth/add_stu.php" method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -110,7 +111,7 @@ include_once 'includes/DbConnect.php';
 
 <div class="center hideform" id=updateform>
 <button id="closeEdit" style="float: right;">X</button>
-     <form action="update_stu.php"  method="POST">
+     <form action="Student_auth/update_stu.php"  method="POST">
      UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -166,7 +167,7 @@ include_once 'includes/DbConnect.php';
 
     <div class="center hideform" id=deleteform>
     <button id="closeDelete" style="float: right;">X</button>
-    <form action="remove_stu.php" method="POST">
+    <form action="Student_auth/remove_stu.php" method="POST">
         Enter the UIN:<br>
         <input type="number" name="dUIN">
         <br><br>
@@ -176,7 +177,7 @@ include_once 'includes/DbConnect.php';
 
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
-    <form action="show_stu.php" method="POST">
+    <form action="Student_auth/show_stu.php" method="POST">
              Enter the UIN:<br>
         <input type="number" name="displayUIN">
         <br><br>
@@ -184,9 +185,9 @@ include_once 'includes/DbConnect.php';
     </form>
 </div>
 
-<button id="Add">Add user</button>
-<button id="Edit">Update User Details</button>
-<button id="Delete">Delete User</button>
+<button id="Add">Add student</button>
+<button id="Edit">Update student details</button>
+<button id="Delete">Delete student information</button>
 <button id="Show">Display My information</button>
 <br> <br> <br>
 
