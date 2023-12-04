@@ -22,7 +22,7 @@
         <![endif]-->
         <h1>Main Page</h1>
         <?php echo "hello " . $_SESSION["username"]?><br>
-        <a href="programInfo.php">Program Information Management</a><br>
-        <a href="documentUpload.php">Document Upload and Management</a><br>
+        <a href="Admin-ProgramManagement/programInfo.php">Program Information Management</a><br>
+        <a href="Student-DocumentManagement/documentManagement.php">Document Upload and Management</a><br>
     </body>
 </html>

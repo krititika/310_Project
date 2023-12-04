@@ -1,6 +1,6 @@
 <?php
-    include_once 'includes/startSession.php';
-    include_once 'includes/DbConnect.php';
+    include_once '../includes/startSession.php';
+    include_once '../includes/DbConnect.php';
 
     $tmpName = $_FILES['file']['tmp_name'];
 
@@ -39,4 +39,4 @@
     else{
         $_SESSION[$keyName] = false;
     }
-    header("Location: documentUpload.php");
+    header("Location: documentManagement.php");

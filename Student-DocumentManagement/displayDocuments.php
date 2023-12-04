@@ -1,5 +1,5 @@
 <?php
-    include_once "includes/DbConnect.php";
+    include_once "../includes/DbConnect.php";
     
     $sql = "SELECT * FROM Documentation;";
     $result = mysqli_query($conn, $sql);

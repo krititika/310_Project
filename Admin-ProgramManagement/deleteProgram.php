@@ -1,6 +1,6 @@
 <?php
-    include_once 'includes/startSession.php';
-    include_once "includes/DbConnect.php";
+    include_once '../includes/startSession.php';
+    include_once "../includes/DbConnect.php";
 
     if($_POST['full-delete']){
         // deleting from Event
@@ -34,7 +34,6 @@
                 WHERE App_Num = " . $row['App_Num'] . ";";
                 $resultDoc = mysqli_query($conn, $sql);
             }
-            
         }
         
         // deleting from Application
