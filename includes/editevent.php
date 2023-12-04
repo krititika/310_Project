@@ -1,15 +1,15 @@
 <?php
     include_once 'DbConnect.php';
 
-    $id = $_POST['eeventID'];
-    $uin = $_POST['euin'];
-    $program = $_POST['eprogramnum'];
-    $startd = $_POST['estartdate'];
-    $endd = $_POST['eenddate'];
-    $startt = $_POST['estarttime'];
-    $endt = $_POST['eendtime'];
-    $loc = $_POST['elocation'];
-    $type = $_POST['eeventtype'];
+    $id = mysqli_real_escape_string($conn,$_POST['eeventID']);
+    $uin = mysqli_real_escape_string($conn,$_POST['euin']);
+    $program = mysqli_real_escape_string($conn,$_POST['eprogramnum']);
+    $startd = mysqli_real_escape_string($conn,$_POST['estartdate']);
+    $endd = mysqli_real_escape_string($conn,$_POST['eenddate']);
+    $startt = mysqli_real_escape_string($conn,$_POST['estarttime']);
+    $endt = mysqli_real_escape_string($conn,$_POST['eendtime']);
+    $loc = mysqli_real_escape_string($conn,$_POST['elocation']);
+    $type = mysqli_real_escape_string($conn,$_POST['eeventtype']);
 
     $sql = "UPDATE event 
     SET UIN = '$uin', Program_Num = '$program', Start_Date = '$startd',

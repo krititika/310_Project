@@ -1,11 +1,11 @@
 <?php
     include_once 'DbConnect.php';
 
-    $uin = $_POST['acluin'];
-    $classid = $_POST['aclclassid'];
-    $status = $_POST['aclstatus'];
-    $semester = $_POST['aclsemester'];
-    $year = $_POST['aclyear'];
+    $uin = mysqli_real_escape_string($conn,$_POST['acluin']);
+    $classid = mysqli_real_escape_string($conn,$_POST['aclclassid']);
+    $status = mysqli_real_escape_string($conn,$_POST['aclstatus']);
+    $semester = mysqli_real_escape_string($conn,$_POST['aclsemester']);
+    $year = mysqli_real_escape_string($conn,$_POST['aclyear']);
 
     $sql = "INSERT INTO class_enrollment (UIN, Class_ID, Status, Semester,
     Year) VALUES ('$uin','$classid','$status','$semester','$year')";
