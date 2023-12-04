@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 29, 2023 at 02:11 PM
+-- Generation Time: Dec 04, 2023 at 02:45 PM
 -- Server version: 10.5.20-MariaDB
 -- PHP Version: 7.3.33
 
@@ -255,8 +255,8 @@ DELIMITER ;
 --
 ALTER TABLE `Application`
   ADD PRIMARY KEY (`App_Num`),
-  ADD UNIQUE KEY `Program_Num` (`Program_Num`),
-  ADD UNIQUE KEY `UIN` (`UIN`);
+  ADD KEY `Program_Num` (`Program_Num`) USING BTREE,
+  ADD KEY `UIN` (`UIN`) USING BTREE;
 
 --
 -- Indexes for table `Ceritification`
@@ -269,7 +269,6 @@ ALTER TABLE `Ceritification`
 --
 ALTER TABLE `Cert_Enrollment`
   ADD PRIMARY KEY (`CertE_Num`),
-  ADD KEY `CertE_Num` (`CertE_Num`,`UIN`),
   ADD KEY `Cert_ID` (`Cert_ID`),
   ADD KEY `Program_Num` (`Program_Num`),
   ADD KEY `UIN` (`UIN`);
@@ -285,8 +284,8 @@ ALTER TABLE `Classes`
 --
 ALTER TABLE `Class_Enrollment`
   ADD PRIMARY KEY (`CE_Num`),
-  ADD UNIQUE KEY `UIN` (`UIN`),
-  ADD UNIQUE KEY `Class_ID` (`Class_ID`);
+  ADD KEY `UIN` (`UIN`) USING BTREE,
+  ADD KEY `Class_ID` (`Class_ID`) USING BTREE;
 
 --
 -- Indexes for table `College_Student`
