@@ -1,7 +1,5 @@
 <?php
 
-include_once "includes/definitions.php";
-include_once "includes/DbConnect.php";
 
    $id = $_POST['displayUIN'];
    $sql = "SELECT * FROM College_Student WHERE UIN = '$id'";

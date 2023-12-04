@@ -25,12 +25,12 @@
         </form>
 
         <h2>Admin</h2>
-        <form action="Admin_auth/admin.php" class="registration-section" method="post">
+        <form action="Admin_authentication/adminLogin.php" class="registration-section" method="post">
          <button> Admin User Authentication and Roles</button> <br>
         </form>
 
         <h2>Student</h2>
-        <form action="Student_auth/student.php" class="registration-section" method="post">
+        <form action="Student_authentication/studentLogin.php" class="registration-section" method="post">
          <button> Student User Authentication and Roles</button> <br>
         </form>
 

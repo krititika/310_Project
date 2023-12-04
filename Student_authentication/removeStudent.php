@@ -1,12 +1,11 @@
 <?php
-    include_once "includes/definitions.php";
     include_once "includes/DbConnect.php";
-
+    
     $id = $_POST['dUIN'];
 
-    $sql = "DELETE FROM user 
+    $sql = "DELETE FROM College_Student 
     WHERE UIN = '$id'";
     mysqli_query($conn, $sql);
 
-    header("Location: admin.php");
+    header("Location: student.php");
 ?>

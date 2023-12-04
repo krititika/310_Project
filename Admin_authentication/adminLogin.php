@@ -1,6 +1,6 @@
 <?php
-include 'header.php';
-include_once 'includes/DbConnect.php';
+ include 'header.php';
+include_once '.../includes/DbConnect.php';
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ include_once 'includes/DbConnect.php';
     <!-- User Registration Form -->
     <div class="center hideform" id=registrationForm>
     <button id="closeAdd" style="float: right;">X</button>
-     <form action="Admin_auth/add_ad.php" method="POST">
+     <form action="addAdmin.php" method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -88,7 +88,7 @@ include_once 'includes/DbConnect.php';
 
 <div class="center hideform" id=updateform>
 <button id="closeEdit" style="float: right;">X</button>
-     <form action="Admin_auth/update_ad.php"  method="POST">
+     <form action="updateAdmin.php"  method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -121,8 +121,8 @@ include_once 'includes/DbConnect.php';
     </div>
 
     <div class="center hideform" id=deleteform>
-    <button id="Admin_auth/closeDelete" style="float: right;">X</button>
-    <form action="remove_ad.php" method="POST">
+    <button id="closeDelete" style="float: right;">X</button>
+    <form action="removeAdmin.php" method="POST">
         Enter the UIN:<br>
         <input type="number" name="dUIN">
         <br><br>
@@ -132,7 +132,7 @@ include_once 'includes/DbConnect.php';
 
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
-    <form action="Admin_auth/show_ad.php" method="POST">
+    <form action="showAdmin.php" method="POST">
         <input type="submit" value="Show the list of Users">
     </form>
 </div>
@@ -142,7 +142,7 @@ include_once 'includes/DbConnect.php';
 <button id="Delete">Delete admin</button>
 <button id="Show">Show Admin List</button>
 
-
+<h1>here1</h1>
 <script>
 $('#Add').on('click', function () {
     $('#registrationForm').show();
@@ -178,7 +178,7 @@ $('#closeShow').on('click', function () {
     $('#Show').show();
 })
 </script>
-
+<h1>here2</h1>
 <br>
 <br>
 
@@ -210,9 +210,8 @@ $('#closeShow').on('click', function () {
 
    echo "</table>";
 
-   header("Location: ../admin.php?signup=success");
+   header("Location: Admin_authentication/adminLogin.php");
 
 ?>
-
 </body>
 </html>

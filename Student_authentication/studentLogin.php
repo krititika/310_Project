@@ -1,7 +1,6 @@
 <?php
-
-include_once "includes/definitions.php";
-include_once "includes/DbConnect.php";
+ include 'header.php';
+include_once ".../includes/DbConnect.php";
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +54,7 @@ include_once "includes/DbConnect.php";
     <!-- User Registration Form -->
     <div class="center hideform" id=registrationForm>
     <button id="closeAdd" style="float: right;">X</button>
-     <form action="Student_auth/add_stu.php" method="POST">
+     <form action="addStudent.php" method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -111,7 +110,7 @@ include_once "includes/DbConnect.php";
 
 <div class="center hideform" id=updateform>
 <button id="closeEdit" style="float: right;">X</button>
-     <form action="Student_auth/update_stu.php"  method="POST">
+     <form action="updateStudent.php"  method="POST">
      UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -167,7 +166,7 @@ include_once "includes/DbConnect.php";
 
     <div class="center hideform" id=deleteform>
     <button id="closeDelete" style="float: right;">X</button>
-    <form action="Student_auth/remove_stu.php" method="POST">
+    <form action="removeStudent.php" method="POST">
         Enter the UIN:<br>
         <input type="number" name="dUIN">
         <br><br>
@@ -177,7 +176,7 @@ include_once "includes/DbConnect.php";
 
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
-    <form action="Student_auth/show_stu.php" method="POST">
+    <form action="showStudent.php" method="POST">
              Enter the UIN:<br>
         <input type="number" name="displayUIN">
         <br><br>
@@ -188,7 +187,7 @@ include_once "includes/DbConnect.php";
 <button id="Add">Add student</button>
 <button id="Edit">Update student details</button>
 <button id="Delete">Delete student information</button>
-<button id="Show">Display My information</button>
+<button id="Show">Show My information</button>
 <br> <br> <br>
 
 <script>
@@ -266,7 +265,7 @@ $('#closeShow').on('click', function () {
 
    echo "</table>";
 
-   header("Location: ../admin.php?signup=success");
+   header("Location: studentLogin.php");
 
 ?>
 
