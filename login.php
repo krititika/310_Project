@@ -13,6 +13,7 @@ if($resultCheck > 0){
     while($row = mysqli_fetch_assoc($result)){
         $_SESSION["username"] = $_POST["username"];
         $_SESSION["password"] = $_POST["password"];
+        $_SESSION["UIN"] = $row["UIN"];
         header('Location: main.php');
         exit();
     }

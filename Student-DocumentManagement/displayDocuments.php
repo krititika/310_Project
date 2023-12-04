@@ -1,8 +1,7 @@
 <?php
+    include_once "../includes/startSession.php";
     include_once "../includes/DbConnect.php";
-    
-    $sql = "SELECT * FROM Documentation;";
-    $result = mysqli_query($conn, $sql);
+
     echo
     "<table>
     <tr>
@@ -11,13 +10,21 @@
       <th>Link</th>
       <th>Document Type</th>
     </tr>";
+    $sql = "SELECT * FROM Application
+    WHERE UIN = ".$_SESSION["UIN"].";";
+    $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_assoc($result)){
-        echo
-        "<tr>
-            <td>".$row["Doc_Num"]."</td>
-            <td>".$row["App_Num"]."</td>
-            <td><a target=\"_blank\" href=\"". $row["Link"] ."\">".$row["Link"]."</a></td>
-            <td>".$row["Doc_Type"]."</td>
-        </tr>";
+        $sql = "SELECT * FROM Documentation
+        WHERE App_Num = ".$row['App_Num'].";";
+        $resultDoc = mysqli_query($conn, $sql);
+        while($rowDoc = mysqli_fetch_assoc($resultDoc)){
+            echo
+            "<tr>
+                <td>".$rowDoc["Doc_Num"]."</td>
+                <td>".$rowDoc["App_Num"]."</td>
+                <td><a target=\"_blank\" href=\"". $rowDoc["Link"] ."\">".$rowDoc["Link"]."</a></td>
+                <td>".$rowDoc["Doc_Type"]."</td>
+            </tr>";
+        }
     }
     echo "</table>";

@@ -1,5 +1,6 @@
 <?php
     include_once '../includes/startSession.php';
+    include_once "../includes/DbConnect.php";
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -24,13 +25,22 @@
             <form action="uploadDocument.php" class="float-child" method="post" enctype="multipart/form-data">
                 Upload Document<br>
                 File: <input type="file" name="file" accept=".pdf" required><br>
-                Application id: <input type="number" name="app_num" required><br>
+                Application id: <select type="number" name="app_num" required>
+                    <?php
+                        $sql = "SELECT * FROM Application
+                        WHERE UIN = ".$_SESSION["UIN"].";";
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "<option value=".$row["App_Num"].">".$row["App_Num"]."</option>";
+                        }
+                    ?>
+                </select>
                 Document Type: <select name="doc_type">
                     <option value="resume">Resume</option>
                     <option value="cover_letter">Cover Letter</option>
                     <option value="letter_of_rec">Letter Of Recomendation</option>
                     <option value="school_transcript">School Transcript</option>
-                </select>
+                </select><br>
                 <input type="submit"><br>
                 <?php
                     $keyName = "uploadedDocument";
@@ -47,7 +57,22 @@
             </form>
             <form action="deleteDocument.php" class="float-child" method="post">
                 Delete Document<br>
-                Document id: <input type="number" name="document-id" required><br>
+                Document id: <select type="number" name="document-id" required>
+                    <?php
+                        $sql = "SELECT * FROM Application
+                        WHERE UIN = ".$_SESSION["UIN"].";";
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            $sql = "SELECT * FROM Documentation
+                            WHERE App_Num = ".$row["App_Num"].";";
+                            $resultDoc = mysqli_query($conn, $sql);
+                            while($rowDoc = mysqli_fetch_assoc($resultDoc)){
+                                echo "<option value=".$row["Doc_Num"].">".$rowDoc["Doc_Num"]."</option>";
+                            }
+                        }
+                    ?>
+                </select><br>
+
                 <input type="submit"><br>
                 <?php
                     $keyName = "deletedDocument";
@@ -65,7 +90,21 @@
             <form action="replaceDocument.php" class="float-child" method="post" enctype="multipart/form-data">
                 Replace Document<br>
                 File: <input type="file" name="file" accept=".pdf"required><br>
-                Document id: <input type="number" name="document-id" required><br>
+                Document id: <select type="number" name="document-id" required>
+                    <?php
+                        $sql = "SELECT * FROM Application
+                        WHERE UIN = ".$_SESSION["UIN"].";";
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            $sql = "SELECT * FROM Documentation
+                            WHERE App_Num = ".$row["App_Num"].";";
+                            $resultDoc = mysqli_query($conn, $sql);
+                            while($rowDoc = mysqli_fetch_assoc($resultDoc)){
+                                echo "<option value=".$row["Doc_Num"].">".$rowDoc["Doc_Num"]."</option>";
+                            }
+                        }
+                    ?>
+                </select><br>
                 <input type="submit"><br>
                 <?php
                     $keyName = "replacedDocument";
