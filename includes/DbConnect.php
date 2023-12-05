@@ -1,8 +1,6 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "id21548664_csce310";
+    // startup a new session or resume one
+    session_start();
 
     // keep different settings in a separate DbParams.php file
     // this way we don't all have to have the same settings
@@ -11,6 +9,11 @@
     } else {
         echo "DbParams.php is missing.";
     }
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "id21548664_csce310";
 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -21,4 +24,3 @@
     }
 
     echo "Connected successfully<br>";
-?>

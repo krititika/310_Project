@@ -1,5 +1,5 @@
 <?php
-    include_once '.../include/DbConnect.php';
+ include_once "includes/DbConnect.php";
  
 $auin = $_POST['uin'];
 $afirstName = $_POST['firstname'];
@@ -17,6 +17,6 @@ $sql = "INSERT INTO user (UIN, First_Name, M_Initial, Last_Name, Username, Passw
 mysqli_query($conn, $sql);
 
 
-header("Location: Admin_authentication/admin.php");
+header("Location: adminLogin.php");
 ?>
 

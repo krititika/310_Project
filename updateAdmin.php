@@ -1,5 +1,5 @@
 <?php
-     include_once '.../include/DbConnect.php';
+   include_once "includes/DbConnect.php";
 
 $auin = $_POST['uin'];
 $afirstName = $_POST['firstname'];
@@ -18,5 +18,5 @@ User_Type = '$auserType', Email = '$aemail' , Discord_Name = '$adiscordName'
 WHERE UIN = '$auin'";
 mysqli_query($conn, $sql);
 
-header("Location: Admin_authentication/admin.php");
+header("Location: adminLogin.php");
 ?>

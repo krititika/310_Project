@@ -1,6 +1,5 @@
 <?php
-include_once ".../includes/definitions.php";
-include_once ".../includes/DbConnect.php";
+ include_once "includes/DbConnect.php";
 
 
 $suin = $_POST['uin'];
@@ -24,5 +23,5 @@ $sql = "INSERT INTO College_Student (UIN, Gender, Hispanic_Latino, Race, USCitiz
             VALUES ('$suin', '$sgender', '$shispaniclatino', '$srace', '$suscitizen', '$sfirstgen', '$sdob', '$sgpa', '$smajor', '$sminor1', '$sminor2', '$expgrads', '$sschool', '$sclassification', '$sstudenttype', '$sphone')";
 mysqli_query($conn, $sql);
 
-header("Location: student.php");
+header("Location:studentLogin.php");
 ?>

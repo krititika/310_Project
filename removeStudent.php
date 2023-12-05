@@ -7,5 +7,5 @@
     WHERE UIN = '$id'";
     mysqli_query($conn, $sql);
 
-    header("Location: student.php");
+    header("Location: studentLogin.php");
 ?>

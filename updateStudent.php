@@ -1,6 +1,5 @@
 <?php
-include_once "includes/definitions.php";
-include_once "includes/DbConnect.php";
+ include_once "includes/DbConnect.php";
 
 $suin = $_POST['uin'];
 $sgender = $_POST['gender'];
@@ -29,5 +28,5 @@ $sql = "UPDATE College_Student
         WHERE UIN = '$suin'";
 mysqli_query($conn, $sql);
 
-header("Location: student.php");
+header("Location: studentLogin.php");
 ?>

@@ -1,6 +1,5 @@
 <?php
- include 'header.php';
-include_once ".../includes/DbConnect.php";
+include_once "includes/DbConnect.php";
 ?>
 
 <!DOCTYPE html>

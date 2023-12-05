@@ -1,5 +1,5 @@
 <?php
-    include_once '.../include/DbConnect.php';
+        include_once "includes/DbConnect.php";
     
     $id = $_POST['dUIN'];
 
@@ -7,5 +7,5 @@
     WHERE UIN = '$id'";
     mysqli_query($conn, $sql);
 
-    header("Location: Admin_authentication/admin.php");
+    header("Location: adminLogin.php");
 ?>
