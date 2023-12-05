@@ -2,7 +2,7 @@
      include_once "includes/DbConnect.php";
 
    $id = $_POST['displayUIN'];
-   $sql = "SELECT * FROM College_Student WHERE UIN = '$id'";
+   $sql = "SELECT * FROM College_Student  WHERE UIN = ".$_SESSION["UIN"].";";
    $result = mysqli_query($conn, $sql);
 
    echo "<table border='1'>

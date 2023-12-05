@@ -141,7 +141,6 @@ include_once 'includes/DbConnect.php';
 <button id="Delete">Delete admin</button>
 <button id="Show">Show Admin List</button>
 
-<h1>here1</h1>
 <script>
 $('#Add').on('click', function () {
     $('#registrationForm').show();
@@ -177,7 +176,7 @@ $('#closeShow').on('click', function () {
     $('#Show').show();
 })
 </script>
-<h1>here2</h1>
+
 <br>
 <br>
 

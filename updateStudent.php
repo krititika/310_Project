@@ -25,7 +25,7 @@ $sql = "UPDATE College_Student
             Minor2 = '$sminor2', Expected_Graduation = '$expgrads', School = '$sschool', 
             Current_Classification = '$sclassification', Student_Type = '$sstudenttype',  
             Phone = '$sphone' 
-        WHERE UIN = '$suin'";
+            WHERE UIN = ".$_SESSION["UIN"].";";
 mysqli_query($conn, $sql);
 
 header("Location: studentLogin.php");

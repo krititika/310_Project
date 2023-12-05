@@ -25,16 +25,6 @@
             <input type="submit"> <br>
         </form>
 
-        <h2>Admin</h2>
-        <form action="adminLogin.php" class="registration-section" method="post">
-         <button> Admin User Authentication and Roles</button> <br>
-        </form>
-
-        <h2>Student</h2>
-        <form action="studentLogin.php" class="registration-section" method="post">
-         <button> Student User Authentication and Roles</button> <br>
-        </form>
-
         
         
     </body>
