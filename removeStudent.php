@@ -4,7 +4,7 @@
     $id = $_POST['dUIN'];
 
     $sql = "DELETE FROM College_Student 
-    WHERE UIN = ".$_SESSION["UIN"].";";
+    WHERE UIN = '$id'";
     mysqli_query($conn, $sql);
 
     header("Location: studentLogin.php");
