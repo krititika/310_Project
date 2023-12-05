@@ -155,6 +155,16 @@
     </form>
 </div>
 
+<div class="center hideform" id=delform>
+    <button id="deleteAccess" style="float: right;">X</button>
+    <form action="removeAccess.php" method="POST">
+        Enter the UIN:<br>
+        <input type="number" name="dUIN">
+        <br><br>
+        <input type="submit" value="Remove user's access">
+    </form>
+</div>
+
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
     <form action="showAdmin.php" method="POST">
@@ -162,9 +172,12 @@
     </form>
 </div>
 
-<button id="Add">Add new admin</button>
-<button id="Edit">Update admin details</button>
-<button id="Delete">Delete admin</button>
+
+
+<button id="Add">Add new user</button>
+<button id="Edit">Update user details</button>
+<button id="Delete">Delete user</button>
+<button id="DeleteAccess">Remove access</button>
 <button id="Show">Show User List</button>
 
 <script>
@@ -193,6 +206,16 @@ $('#closeDelete').on('click', function () {
     $('#deleteform').hide();
     $('#Delete').show();
 })
+
+$('#DeleteAccess').on('click', function () {
+    $('#delform').show();
+    $(this).hide();
+})
+$('#closeDelete').on('click', function () {
+    $('#delform').hide();
+    $('#DeleteAccess').show();
+})
+
 $('#Show').on('click', function () {
     $('#showform').show();
     $(this).hide();
@@ -506,7 +529,7 @@ $('#closeShow').on('click', function () {
 
    echo "</table>";
 
-   header("Location: studentLogin.php");
+   header("Location: main.php");
 
 ?>
 
