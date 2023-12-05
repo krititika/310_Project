@@ -1,5 +1,5 @@
 <?php
-   include_once "includes/DbConnect.php";
+include_once "includes/DbConnect.php";
 
 $auin = $_POST['uin'];
 $afirstName = $_POST['firstname'];
@@ -11,12 +11,26 @@ $auserType = $_POST['usertype'];
 $aemail = $_POST['email'];
 $adiscordName = $_POST['discordname'];
 
-$sql = "UPDATE user 
-SET UIN = '$auin', First_Name = '$afirstName', M_Initial = '$amiddleinitial',
-Last_Name = '$alastname', Username = '$ausername', Password = '$apassword', 
-User_Type = '$auserType', Email = '$aemail' , Discord_Name = '$adiscordName' 
-WHERE UIN = '$auin'";
-mysqli_query($conn, $sql);
+// Initialize an array to store the fields to be updated
+$fieldsToUpdate = array();
+
+// Check each input field and add it to the array if it's not empty
+if (!empty($afirstName)) $fieldsToUpdate[] = "First_Name = '$afirstName'";
+if (!empty($amiddleinitial)) $fieldsToUpdate[] = "M_Initial = '$amiddleinitial'";
+if (!empty($alastname)) $fieldsToUpdate[] = "Last_Name = '$alastname'";
+if (!empty($ausername)) $fieldsToUpdate[] = "Username = '$ausername'";
+if (!empty($apassword)) $fieldsToUpdate[] = "Password = '$apassword'";
+if (!empty($auserType)) $fieldsToUpdate[] = "User_Type = '$auserType'";
+if (!empty($aemail)) $fieldsToUpdate[] = "Email = '$aemail'";
+if (!empty($adiscordName)) $fieldsToUpdate[] = "Discord_Name = '$adiscordName'";
+
+// Check if there are fields to update
+if (!empty($fieldsToUpdate)) {
+    // Build the SQL query with the dynamically generated SET clause
+    $setClause = implode(', ', $fieldsToUpdate);
+    $sql = "UPDATE user SET $setClause WHERE UIN = '$auin'";
+    mysqli_query($conn, $sql);
+}
 
 header("Location: adminLogin.php");
 ?>

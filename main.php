@@ -27,6 +27,7 @@
 
     <?php if ($_SESSION["usertype"] == "Admin"): ?>
         <div>Hello admin</div>
+        <br>
         <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,7 +165,7 @@
 <button id="Add">Add new admin</button>
 <button id="Edit">Update admin details</button>
 <button id="Delete">Delete admin</button>
-<button id="Show">Show Admin List</button>
+<button id="Show">Show User List</button>
 
 <script>
 $('#Add').on('click', function () {
@@ -396,6 +397,14 @@ $('#closeShow').on('click', function () {
             Student type:<br>
             <input type="text" name="studenttype" >
             <br>
+            <br>
+            Username:<br>
+            <input type="text" name="username" >
+            <br>
+            <br>
+            Password:<br>
+            <input type="password" name="password" >
+            <br>
             <br><br>
             <input type="submit" value="Update Student">
         </form>
@@ -404,27 +413,22 @@ $('#closeShow').on('click', function () {
     <div class="center hideform" id=deleteform>
     <button id="closeDelete" style="float: right;">X</button>
     <form action="removeStudent.php" method="POST">
-        Enter the UIN:<br>
-        <input type="number" name="dUIN">
-        <br><br>
-        <input type="submit" value="Delete User">
+        <input type="submit" value="Are you sure you want to deactivate account?">
     </form>
 </div>
 
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
     <form action="showStudent.php" method="POST">
-             Enter the UIN:<br>
-        <input type="number" name="displayUIN">
         <br><br>
-        <input type="submit" value="Show my personal info">
+        <input type="submit" value="Show my personal information">
     </form>
 </div>
 
 <button id="Add">Add student</button>
-<button id="Edit">Update student details</button>
+<button id="Edit">Update student details or login credentials</button>
 <button id="Delete">Delete student information</button>
-<button id="Show">Show My information</button>
+<button id="Show">Show My personal information</button>
 <br> <br> <br>
 
 <script>

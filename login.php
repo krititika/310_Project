@@ -21,5 +21,5 @@ if($resultCheck > 0){
     }
 }
 else{
-    echo "no rows";
+    echo "Please enter correct credential information";
 }
