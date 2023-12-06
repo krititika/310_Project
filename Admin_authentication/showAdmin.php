@@ -1,5 +1,5 @@
 <?php
-   include_once "includes/DbConnect.php";
+   include_once "../includes/DbConnect.php";
 
    include_once 'DbConnect.php';
    $sql = "SELECT * FROM user;";
@@ -27,6 +27,5 @@
    }
 
    echo "</table>";
-
 
 ?>

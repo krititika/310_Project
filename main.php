@@ -26,7 +26,7 @@
     <script src="" async defer></script>
 
     <?php if ($_SESSION["usertype"] == "Admin"): ?>
-        <div>Hello admin</div>
+        <div>Admin functionalities:</div>
         <br>
         <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +79,7 @@
     <!-- User Registration Form -->
     <div class="center hideform" id=registrationForm>
     <button id="closeAdd" style="float: right;">X</button>
-     <form action="addAdmin.php" method="POST">
+     <form action="Admin_authentication/addAdmin.php" method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -113,7 +113,7 @@
 
 <div class="center hideform" id=updateform>
 <button id="closeEdit" style="float: right;">X</button>
-     <form action="updateAdmin.php"  method="POST">
+     <form action="Admin_authentication/updateAdmin.php"  method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -147,7 +147,7 @@
 
     <div class="center hideform" id=deleteform>
     <button id="closeDelete" style="float: right;">X</button>
-    <form action="removeAdmin.php" method="POST">
+    <form action="Admin_authentication/removeAdmin.php" method="POST">
         Enter the UIN:<br>
         <input type="number" name="dUIN">
         <br><br>
@@ -157,7 +157,7 @@
 
 <div class="center hideform" id=delform>
     <button id="deleteAccess" style="float: right;">X</button>
-    <form action="removeAccess.php" method="POST">
+    <form action="Admin_authentication/removeAccess.php" method="POST">
         Enter the UIN:<br>
         <input type="number" name="dUIN">
         <br><br>
@@ -167,7 +167,7 @@
 
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
-    <form action="showAdmin.php" method="POST">
+    <form action="Admin_authentication/showAdmin.php" method="POST">
         <input type="submit" value="Show the list of Users">
     </form>
 </div>
@@ -226,44 +226,22 @@ $('#closeShow').on('click', function () {
 })
 </script>
 
-<br>
-<br>
+    <!-- Button for Program Information Management -->
+    <h2>Program Information Management</h2>
+    <button type="button">Program Information Management</button>
 
-<?php
+    <!-- Button for Program Progress Tracking -->
+    <h2>Program Progress Tracking</h2>
+    <button type="button">Program Progress Tracking</button>
 
-   $sql = "SELECT * FROM user;";
-   $result = mysqli_query($conn, $sql);
-
-   echo "<table border='1'>
-           <tr>
-               <th>UIN</th>
-               <th>First Name</th>
-               <th>Middle Initial</th>
-               <th>Last Name</th>
-               <th>Username</th>
-               <th>Password</th>
-               <th>User Type</th>
-               <th>Email</th>
-               <th>Password</th>
-           </tr>";
-
-   while($row = mysqli_fetch_assoc($result)) {
-       echo "<tr>";
-       foreach ($row as $value) {
-           echo "<td>$value</td>";
-       }
-       echo "</tr>";
-   }
-
-   echo "</table>";
-
-   header("Location: Admin_authentication/adminLogin.php");
-
-?>
+    <!-- Button for Event Management -->
+    <h2>Event Management</h2>
+    <button type="button">Event Management</button>
 </body>
 </html>
     <?php else: ?>
-        <div>Hello student</div>
+        <div> Student functionalities:</div>
+        <br>
         <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -315,7 +293,7 @@ $('#closeShow').on('click', function () {
     <!-- User Registration Form -->
     <div class="center hideform" id=registrationForm>
     <button id="closeAdd" style="float: right;">X</button>
-     <form action="addStudent.php" method="POST">
+     <form action="Student_authentication/addStudent.php" method="POST">
             UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -371,7 +349,7 @@ $('#closeShow').on('click', function () {
 
 <div class="center hideform" id=updateform>
 <button id="closeEdit" style="float: right;">X</button>
-     <form action="updateStudent.php"  method="POST">
+     <form action="Student_authentication/updateStudent.php"  method="POST">
      UIN:<br>
             <input type="number" name="uin" >
             <br>
@@ -435,14 +413,14 @@ $('#closeShow').on('click', function () {
 
     <div class="center hideform" id=deleteform>
     <button id="closeDelete" style="float: right;">X</button>
-    <form action="removeStudent.php" method="POST">
+    <form action="Student_authentication/removeStudent.php" method="POST">
         <input type="submit" value="Are you sure you want to deactivate account?">
     </form>
 </div>
 
 <div class="center hideform" id=showform>
     <button id="closeShow" style="float: right;">X</button>
-    <form action="showStudent.php" method="POST">
+    <form action="Student_authentication/showStudent.php" method="POST">
         <br><br>
         <input type="submit" value="Show my personal information">
     </form>
@@ -452,7 +430,7 @@ $('#closeShow').on('click', function () {
 <button id="Edit">Update student details or login credentials</button>
 <button id="Delete">Delete student information</button>
 <button id="Show">Show My personal information</button>
-<br> <br> <br>
+<br>
 
 <script>
 $('#Add').on('click', function () {
@@ -490,48 +468,19 @@ $('#closeShow').on('click', function () {
 })
 </script>
 
+    <!-- Button for Application Information Management -->
+    <h2>Application Information Management</h2>
+    <button type="button">Application Information Management</button>
+
+    <!-- Button for Program Progress Tracking -->
+    <h2>Program Progress Tracking</h2>
+    <button type="button">Program Progress Tracking</button>
+
+    <!-- Button for Document Upload and Management -->
+    <h2>Document Upload and Management</h2>
+    <button type="button">Document Upload and Management</button>
 <br>
-<br>
 
-<?php
-
-   include_once 'DbConnect.php';
-   $sql = "SELECT * FROM College_Student;";
-   $result = mysqli_query($conn, $sql);
-
-   echo "<table border='1'>
-           <tr>
-               <th>UIN</th>
-               <th>Gender</th>
-               <th>Hispanic/Latino</th>
-               <th>Race</th>
-               <th>U.S. Citizen</th>
-               <th>First_Generation</th>
-               <th>DoB</th>
-               <th>GPA</th>
-               <th>Major</th>
-               <th>Minor #1</th>
-               <th>Minor #2</th>
-               <th>Expected_Graduation</th>
-               <th>School</th>
-               <th>Current_Classification</th>
-               <th>Student_Type</th>
-               <th>Phone</th>
-           </tr>";
-
-   while($row = mysqli_fetch_assoc($result)) {
-       echo "<tr>";
-       foreach ($row as $value) {
-           echo "<td>$value</td>";
-       }
-       echo "</tr>";
-   }
-
-   echo "</table>";
-
-   header("Location: main.php");
-
-?>
 
 </body>
 </html>

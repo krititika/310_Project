@@ -1,5 +1,5 @@
 <?php
-include_once "includes/DbConnect.php";
+include_once "../includes/DbConnect.php";
 
 $auin = $_POST['uin'];
 $afirstName = $_POST['firstname'];
@@ -32,5 +32,5 @@ if (!empty($fieldsToUpdate)) {
     mysqli_query($conn, $sql);
 }
 
-header("Location: main.php");
+header("Location: ../main.php");
 ?>

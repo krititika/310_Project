@@ -1,5 +1,5 @@
 <?php
-include_once "includes/DbConnect.php";
+include_once "../includes/DbConnect.php";
 
 $suin = $_POST['uin'];
 $sgender = $_POST['gender'];
@@ -51,5 +51,5 @@ if (!empty($fieldsToUpdate)) {
 $ssql = "UPDATE User SET Username = '$susername', Password = '$spassword' WHERE UIN = '".$_SESSION["UIN"]."';";
 mysqli_query($conn, $ssql);
 
-header("Location: main.php");
+header("Location: ../main.php");
 ?>
