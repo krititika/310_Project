@@ -17,6 +17,6 @@ $sql = "INSERT INTO user (UIN, First_Name, M_Initial, Last_Name, Username, Passw
 mysqli_query($conn, $sql);
 
 
-header("Location: adminLogin.php");
+header("Location: main.php");
 ?>
 

@@ -211,7 +211,7 @@ $('#DeleteAccess').on('click', function () {
     $('#delform').show();
     $(this).hide();
 })
-$('#closeDelete').on('click', function () {
+$('#deleteAccess').on('click', function () {
     $('#delform').hide();
     $('#DeleteAccess').show();
 })

@@ -7,5 +7,5 @@
     WHERE UIN = '$id'";
     mysqli_query($conn, $sql);
 
-    header("Location: adminLogin.php");
+    header("Location: main.php");
 ?>
