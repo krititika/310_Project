@@ -1,4 +1,5 @@
 <?php
+    include_once 'includes/startSession.php';
     include_once 'includes/DbConnect.php';
 ?>
 <!DOCTYPE html>
@@ -13,14 +14,15 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="syle.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <h1>Main Page</h1>
-        <script src="" async defer></script>
-        <?php echo "hello " . $_SESSION["username"]?>
+        <?php echo "hello " . $_SESSION["username"]?><br>
+        <a href="Admin-ProgramManagement/programInfo.php">Program Information Management</a><br>
+        <a href="Student-DocumentManagement/documentManagement.php">Document Upload and Management</a><br>
     </body>
 </html>

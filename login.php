@@ -2,6 +2,7 @@
 include_once "includes/definitions.php";
 include_once "includes/DbConnect.php";
 
+session_start();
 $sql = "SELECT * from user 
 WHERE Username=\"" . $_POST["username"] . "\"
  AND " . "Password=\"" . $_POST["password"] . "\";";
@@ -12,7 +13,7 @@ if($resultCheck > 0){
     while($row = mysqli_fetch_assoc($result)){
         $_SESSION["username"] = $_POST["username"];
         $_SESSION["password"] = $_POST["password"];
-        // header('Refresh: 0; URL='.URL.'main.php');
+        $_SESSION["UIN"] = $row["UIN"];
         header('Location: main.php');
         exit();
     }
