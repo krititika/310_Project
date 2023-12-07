@@ -1,5 +1,6 @@
 <?php
     include_once "../includes/DbConnect.php";
+    include_once "../includes/startSession.php";
     
     $id = $_POST['dUIN'];
 
