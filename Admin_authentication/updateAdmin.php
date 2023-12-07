@@ -32,5 +32,5 @@ if (!empty($fieldsToUpdate)) {
     mysqli_query($conn, $sql);
 }
 
-header("Location: ../main.php");
+header("Location: AdminManage.php");
 ?>

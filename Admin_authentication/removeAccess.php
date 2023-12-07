@@ -8,5 +8,5 @@ $sql = "UPDATE user
         WHERE UIN = '$id'";
 mysqli_query($conn, $sql);
 
-header("Location: ../main.php");
+header("Location: AdminManage.php");
 ?>

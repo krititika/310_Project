@@ -51,5 +51,5 @@ if (!empty($fieldsToUpdate)) {
 $ssql = "UPDATE User SET Username = '$susername', Password = '$spassword' WHERE UIN = '".$_SESSION["UIN"]."';";
 mysqli_query($conn, $ssql);
 
-header("Location: ../main.php");
+header("Location: StudentManage.php");
 ?>
