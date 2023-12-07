@@ -1,5 +1,4 @@
 <?php
- include 'header.php';
  include_once 'includes/DbConnect.php';
  $uin = $_SESSION["UIN"];
 
