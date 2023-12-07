@@ -156,9 +156,6 @@
 <div class="center hideform" id=updateform>
 <button id="closeEdit" style="float: right;">X</button>
      <form action="updateStudent.php"  method="POST">
-     UIN:<br>
-            <input type="number" name="uin" >
-            <br>
             Gender:<br>
             <input type="text" name="gender" >
             <br>
