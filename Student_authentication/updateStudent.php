@@ -1,24 +1,24 @@
 <?php
 include_once "../includes/DbConnect.php";
 
-$suin = $_POST['uin'];
-$sgender = $_POST['gender'];
-$shispaniclatino = $_POST['hispaniclatino'];
-$srace = $_POST['race'];
-$suscitizen = $_POST['uscitizen'];
-$sfirstgen = $_POST['firstgen'];
-$sdob = $_POST['dob'];
-$sgpa = $_POST['gpa'];
-$smajor = $_POST['major'];
-$sminor1 = $_POST['minor1'];
-$sminor2 = $_POST['minor2'];
-$expgrads = $_POST['expgrad'];
-$sschool = $_POST['school'];
-$sclassification = $_POST['classification'];
-$sphone = $_POST['phone'];
-$sstudenttype = $_POST['studenttype'];
-$susername = $_POST['username'];
-$spassword = $_POST['password'];
+$suin = mysqli_real_escape_string($conn, $_POST['uin']);
+$sgender = mysqli_real_escape_string($conn, $_POST['gender']);
+$shispaniclatino = mysqli_real_escape_string($conn, $_POST['hispaniclatino']);
+$srace = mysqli_real_escape_string($conn, $_POST['race']);
+$suscitizen = mysqli_real_escape_string($conn, $_POST['uscitizen']);
+$sfirstgen = mysqli_real_escape_string($conn, $_POST['firstgen']);
+$sdob = mysqli_real_escape_string($conn, $_POST['dob']);
+$sgpa = mysqli_real_escape_string($conn, $_POST['gpa']);
+$smajor = mysqli_real_escape_string($conn, $_POST['major']);
+$sminor1 = mysqli_real_escape_string($conn, $_POST['minor1']);
+$sminor2 = mysqli_real_escape_string($conn, $_POST['minor2']);
+$expgrads = mysqli_real_escape_string($conn, $_POST['expgrad']);
+$sschool = mysqli_real_escape_string($conn, $_POST['school']);
+$sclassification = mysqli_real_escape_string($conn, $_POST['classification']);
+$sphone = mysqli_real_escape_string($conn, $_POST['phone']);
+$sstudenttype = mysqli_real_escape_string($conn, $_POST['studenttype']);
+$susername = mysqli_real_escape_string($conn, $_POST['username']);
+$spassword = mysqli_real_escape_string($conn, $_POST['password']);
 
 // Initialize an array to store the fields to be updated
 $fieldsToUpdate = array();
