@@ -1,7 +1,4 @@
-<?php
-    // startup a new session or resume one
-    session_start();
-
+<?php   
     // keep different settings in a separate DbParams.php file
     // this way we don't all have to have the same settings
     if (file_exists('includes/DbParams.php')) {
@@ -23,4 +20,3 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    echo "Connected successfully<br>";

@@ -1,7 +1,7 @@
 <?php
+     include_once "../includes/startSession.php";
      include_once "../includes/DbConnect.php";
-
-   $id = $_POST['displayUIN'];
+ 
    $sql = "SELECT * FROM College_Student WHERE UIN = ".$_SESSION["UIN"].";";
    $result = mysqli_query($conn, $sql);
 

@@ -15,7 +15,6 @@ if($resultCheck > 0){
         $_SESSION["password"] = $_POST["password"];
         $_SESSION["UIN"] = $row["UIN"];
         $_SESSION["usertype"] = $row["User_Type"];
-        $_SESSION["UIN"] = $row["UIN"];
         header('Location: main.php');
         exit();
     }

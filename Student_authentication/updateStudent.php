@@ -1,4 +1,5 @@
 <?php
+include_once "../includes/startSession.php";
 include_once "../includes/DbConnect.php";
 
 $suin = mysqli_real_escape_string($conn, $_POST['uin']);
