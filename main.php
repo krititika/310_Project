@@ -85,7 +85,7 @@
                 <a href="Admin-ProgramManagement/programInfo.php"><button>Program Information Management</button></a>
 
                 <h2>Program Progress Tracking</h2>
-                <button type="button">Program Progress Tracking</button>
+                <a href="Admin-ProgramProgress/programProgress.php"><button type="button">Program Progress Tracking</button></a>
 
                 <h2>Event Management</h2>
                 <a href="Admin-Events/events.php"><button>Event Management</button></a>
