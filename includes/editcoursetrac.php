@@ -8,7 +8,7 @@
     $year = mysqli_real_escape_string($conn,$_POST['eclyear']);
 
     $sql = "UPDATE class_enrollment 
-    SET UIN = '$suin', Class_ID = '$classid', Status = '$status',
+    SET Class_ID = '$classid', Status = '$status',
     Semester = '$semester', Year = '$year'
     WHERE CE_Num = '$coursenum'";
     mysqli_query($conn, $sql);

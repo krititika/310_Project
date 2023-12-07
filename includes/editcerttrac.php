@@ -10,7 +10,7 @@
     $year = mysqli_real_escape_string($conn,$_POST['ecyear']);
 
     $sql = "UPDATE cert_enrollment 
-    SET UIN = '$suin', Cert_ID = '$certid', Program_Num = '$program',
+    SET Cert_ID = '$certid', Program_Num = '$program',
     Status = '$status', Training_Status = '$trainingstatus', 
     Semester = '$semester', Year = '$year'
     WHERE CertE_Num = '$certnum'";
