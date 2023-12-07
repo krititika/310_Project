@@ -1,5 +1,6 @@
 <?php
-    include_once 'DbConnect.php';
+    include_once "../includes/startSession.php";
+    include_once '../includes/DbConnect.php';
 
     $uin = $_SESSION["UIN"];
     $certid = mysqli_real_escape_string($conn,$_POST['accertid']);
@@ -10,9 +11,9 @@
     $year = mysqli_real_escape_string($conn,$_POST['acyear']);
 
     $sql = "INSERT INTO cert_enrollment (UIN, Cert_ID, Program_Num,
-     Status,Training_Status, Semester, Year) VALUES ('$uin,'$certid',
+     Status,Training_Status, Semester, Year) VALUES ('$uin','$certid',
      '$program','$status','$trainingstatus','$semester','$year')";
     mysqli_query($conn, $sql);
  
-    header("Location: ../programtrack.php?signup=success");
+    header("Location: ../Student-ProgramTrack/programtrack.php?signup=success");
 ?>

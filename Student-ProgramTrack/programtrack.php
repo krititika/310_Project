@@ -1,6 +1,6 @@
 <?php
-include_once 'includes/startSession.php';
- include_once 'includes/DbConnect.php';
+include_once '../includes/startSession.php';
+ include_once '../includes/DbConnect.php';
  $uin = $_SESSION["UIN"];
 
 ?>
@@ -66,10 +66,7 @@ include_once 'includes/startSession.php';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <div class = "form" style="display: None;" id=courseform>
     <div class = "left-column">
-        <form action="includes/addcoursetrac.php" method="POST">
-            UIN:<br>
-            <input type="number" name="acluin">
-            <br>
+        <form action="addcoursetrac.php" method="POST">
             Class ID:<br>
             <input type="number" name="aclclassid">
             <br>
@@ -86,12 +83,9 @@ include_once 'includes/startSession.php';
         </form>
     </div>
     <div class = "middle-column">
-        <form action="includes/editcoursetrac.php" method="POST">
+        <form action="editcoursetrac.php" method="POST">
             Course Number:<br>
             <input type="number" name="eclcoursenum">
-            <br>
-            UIN:<br>
-            <input type="number" name="ecluin">
             <br>
             Class ID:<br>
             <input type="number" name="eclclassid">
@@ -110,7 +104,7 @@ include_once 'includes/startSession.php';
     </div>
     <div class="right-column">
         <button id="clclose" style="float: right;">X</button>
-        <form action="includes/deletecoursetrac.php" method="POST">
+        <form action="deletecoursetrac.php" method="POST">
             Course Number:<br>
             <input type="number" name="dclcoursenum">
             <br><br>
@@ -121,10 +115,7 @@ include_once 'includes/startSession.php';
 
 <div class = "form" style="display: None;" id=internform>
     <div class = "left-column">
-        <form action="includes/addinterntrac.php" method="POST">
-            UIN:<br>
-            <input type="number" name="aiuin">
-            <br>
+        <form action="addinterntrac.php" method="POST">
             Intern ID:<br>
             <input type="number" name="aiinternid">
             <br>
@@ -138,12 +129,9 @@ include_once 'includes/startSession.php';
         </form>
     </div>
     <div class = "middle-column">
-        <form action="includes/editinterntrac.php" method="POST">
+        <form action="editinterntrac.php" method="POST">
             Intern App Number:<br>
             <input type="number" name="eiinternappnum">
-            <br>
-            UIN:<br>
-            <input type="number" name="eiuin">
             <br>
             Intern ID:<br>
             <input type="number" name="eiinternid">
@@ -159,7 +147,7 @@ include_once 'includes/startSession.php';
     </div>
     <div class="right-column">
         <button id="iclose" style="float: right;">X</button>
-        <form action="includes/deleteinterntrac.php" method="POST">
+        <form action="deleteinterntrac.php" method="POST">
             Internship App Number:<br>
             <input type="number" name="diinternappnum">
             <br><br>
@@ -170,10 +158,7 @@ include_once 'includes/startSession.php';
 
 <div class = "form" style="display: None;" id=certform>
     <div class = "left-column">
-        <form action="includes/addcerttrac.php" method="POST">
-            UIN:<br>
-            <input type="number" name="acuin">
-            <br>
+        <form action="addcerttrac.php" method="POST">
             Certification ID:<br>
             <input type="number" name="accertid">
             <br>
@@ -196,12 +181,9 @@ include_once 'includes/startSession.php';
         </form>
     </div>
     <div class = "middle-column">
-    <form action="includes/editcerttrac.php" method="POST">
+    <form action="editcerttrac.php" method="POST">
             Certification Enrollment Number:<br>
             <input type="number" name="eccertenrollnum">
-            <br>
-            UIN:<br>
-            <input type="number" name="ecuin">
             <br>
             Certification ID:<br>
             <input type="number" name="eccertid">
@@ -226,7 +208,7 @@ include_once 'includes/startSession.php';
     </div>
     <div class="right-column">
         <button id="cclose" style="float: right;">X</button>
-        <form action="includes/deletecerttrac.php" method="POST">
+        <form action="deletecerttrac.php" method="POST">
             Certification Enrollment Number:<br>
             <input type="number" name="dccertenrollnum">
             <br><br>

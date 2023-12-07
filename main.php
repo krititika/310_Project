@@ -88,7 +88,8 @@
                 <button type="button">Program Progress Tracking</button>
 
                 <h2>Event Management</h2>
-                <button type="button">Event Management</button>
+                <a href="Admin-Events/events.php"><button>Event Management</button></a>
+
             </div>
         <?php else: ?>
             <div class="student-info">Student functionalities:</div>
@@ -101,7 +102,7 @@
 
     <!-- Button for Program Progress Tracking -->
     <h2>Program Progress Tracking</h2>
-    <button type="button">Program Progress Tracking</button>
+    <a href="Student-ProgramTrack/programtrack.php"><button>Program Progress Tracking</button></a>
 
     <!-- Button for Document Upload and Management -->
     <h2>Document Upload and Management</h2>
