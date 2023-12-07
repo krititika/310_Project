@@ -1,5 +1,6 @@
 <?php
-    include_once 'DbConnect.php';
+    include_once "../includes/startSession.php";
+    include_once '../includes/DbConnect.php';
     $uin = $_SESSION["UIN"];
     $internid = mysqli_real_escape_string($conn,$_POST['aiinternid']);
     $status = mysqli_real_escape_string($conn,$_POST['aistatus']);
@@ -9,5 +10,5 @@
     VALUES ('$uin','$internid','$status','$year')";
     mysqli_query($conn, $sql);
 
-    header("Location: ../programtrack.php?signup=success");
+    header("Location: ../Student-ProgramTrack/programtrack.php?signup=success");
 ?>

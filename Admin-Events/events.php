@@ -1,6 +1,6 @@
 <?php
- include_once 'includes/DbConnect.php';
-?>
+    include_once '../includes/DbConnect.php';
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +49,7 @@
 
 <div class="center hideform" id=addform>
     <button id="aclose" style="float: right;">X</button>
-    <form action="includes/addevent.php" method="POST">
+    <form action="addevent.php" method="POST">
         Event Type:<br>
         <input type="text" name="aeventtype">
         <br>
@@ -80,7 +80,7 @@
 
 <div class="center hideform" id=editform>
     <button id="eclose" style="float: right;">X</button>
-    <form action="includes/editevent.php" method="POST">
+    <form action="editevent.php" method="POST">
         Event ID:<br>
         <input type="number" name="eeventID">
         <br>
@@ -114,7 +114,7 @@
 
 <div class="center hideform" id=deleteform>
     <button id="dclose" style="float: right;">X</button>
-    <form action="includes/deleteevent.php" method="POST">
+    <form action="deleteevent.php" method="POST">
         Event ID:<br>
         <input type="number" name="deventID">
         <br><br>

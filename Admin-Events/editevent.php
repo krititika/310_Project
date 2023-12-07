@@ -1,5 +1,5 @@
 <?php
-    include_once 'DbConnect.php';
+    include_once '../includes/DbConnect.php';
 
     $id = mysqli_real_escape_string($conn,$_POST['eeventID']);
     $uin = mysqli_real_escape_string($conn,$_POST['euin']);
@@ -18,5 +18,5 @@
     WHERE Event_ID = '$id'";
     mysqli_query($conn, $sql);
 
-    header("Location: ../events.php?signup=success");
+    header("Location: ../Admin-Events/events.php?signup=success");
 ?>

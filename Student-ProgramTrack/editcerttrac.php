@@ -1,5 +1,6 @@
 <?php
-    include_once 'DbConnect.php';
+    include_once "../includes/startSession.php";
+    include_once '../includes/DbConnect.php';
 
     $certnum = mysqli_real_escape_string($conn,$_POST['eccertenrollnum']);
     $certid = mysqli_real_escape_string($conn,$_POST['eccertid']);
@@ -16,5 +17,5 @@
     WHERE CertE_Num = '$certnum'";
     mysqli_query($conn, $sql);
 
-    header("Location: ../programtrack.php?signup=success");
+    header("Location: ../Student-ProgramTrack/programtrack.php?signup=success");
 ?>
