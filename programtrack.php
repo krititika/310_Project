@@ -1,4 +1,5 @@
 <?php
+include_once 'includes/startSession.php';
  include_once 'includes/DbConnect.php';
  $uin = $_SESSION["UIN"];
 
@@ -241,7 +242,7 @@
 <div class = "table" id=programtracksql>
     <div class = "left-column">
         <?php
-            $sql = "SELECT * FROM ClassName
+            $sql = "SELECT * FROM classname
             WHERE UIN = $uin;";
             $result = mysqli_query($conn, $sql);
 
