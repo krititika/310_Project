@@ -7,7 +7,7 @@
     $year = mysqli_real_escape_string($conn,$_POST['eiyear']);
 
     $sql = "UPDATE intern_app 
-    SET UIN = '$suin', Intern_ID = '$internid', Status = '$status',
+    SET Intern_ID = '$internid', Status = '$status',
     Year = '$year'
     WHERE IA_Num = '$ianum'";
     mysqli_query($conn, $sql);

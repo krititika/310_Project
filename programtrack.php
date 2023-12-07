@@ -1,6 +1,6 @@
 <?php
- include 'header.php';
  include_once 'includes/DbConnect.php';
+ $uin = $_SESSION["UIN"];
 
 ?>
 
@@ -242,7 +242,7 @@
     <div class = "left-column">
         <?php
             $sql = "SELECT * FROM ClassName
-            WHERE UIN = 0;";
+            WHERE UIN = $uin;";
             $result = mysqli_query($conn, $sql);
 
             echo "<table border='1'>
@@ -269,7 +269,7 @@
     <div class = "middle-column">
         <?php
             $sql = "SELECT * FROM intern_app
-            WHERE UIN = 0;";
+            WHERE UIN = $uin;";
             $result = mysqli_query($conn, $sql);
 
             echo "<table border='1'>
@@ -295,7 +295,7 @@
     <div class = "right-column">
         <?php
             $sql = "SELECT * FROM cert_enrollment
-            WHERE UIN = 0;";
+            WHERE UIN = $uin;";
             $result = mysqli_query($conn, $sql);
 
             echo "<table border='1'>
