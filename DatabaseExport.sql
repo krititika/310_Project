@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 04, 2023 at 02:45 PM
--- Server version: 10.5.20-MariaDB
--- PHP Version: 7.3.33
+-- Host: 127.0.0.1
+-- Generation Time: Dec 07, 2023 at 08:16 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Application`
+-- Stand-in structure for view `appdocs`
+-- (See below for the actual view)
+--
+CREATE TABLE `appdocs` (
+`App_Num` int(6)
+,`Program_Num` int(6)
+,`UIN` int(9)
+,`Doc_Num` int(6)
+,`Link` varchar(1024)
+,`Doc_Type` varchar(256)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `application`
 --
 
-CREATE TABLE `Application` (
+CREATE TABLE `application` (
   `App_Num` int(6) NOT NULL,
   `Program_Num` int(6) NOT NULL,
   `UIN` int(9) NOT NULL,
@@ -39,23 +54,30 @@ CREATE TABLE `Application` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Ceritification`
+-- Table structure for table `ceritification`
 --
 
-CREATE TABLE `Ceritification` (
+CREATE TABLE `ceritification` (
   `Cert_ID` int(6) NOT NULL,
   `Level` varchar(64) NOT NULL,
   `Name` varchar(64) NOT NULL,
   `Description` varchar(2048) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `ceritification`
+--
+
+INSERT INTO `ceritification` (`Cert_ID`, `Level`, `Name`, `Description`) VALUES
+(1, 'asdas', 'dasdas', 'dasd');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Cert_Enrollment`
+-- Table structure for table `cert_enrollment`
 --
 
-CREATE TABLE `Cert_Enrollment` (
+CREATE TABLE `cert_enrollment` (
   `CertE_Num` int(6) NOT NULL,
   `UIN` int(9) NOT NULL,
   `Cert_ID` int(6) NOT NULL,
@@ -69,23 +91,44 @@ CREATE TABLE `Cert_Enrollment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Classes`
+-- Table structure for table `classes`
 --
 
-CREATE TABLE `Classes` (
+CREATE TABLE `classes` (
   `Class_ID` int(6) NOT NULL,
   `Name` varchar(64) DEFAULT NULL,
   `Description` varchar(2048) DEFAULT NULL,
   `Type` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `classes`
+--
+
+INSERT INTO `classes` (`Class_ID`, `Name`, `Description`, `Type`) VALUES
+(1, 'adsasd', 'asdasd', 'asdasd');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Class_Enrollment`
+-- Stand-in structure for view `classname`
+-- (See below for the actual view)
+--
+CREATE TABLE `classname` (
+`UIN` int(9)
+,`Name` varchar(64)
+,`Status` varchar(64)
+,`Semester` varchar(16)
+,`Year` year(4)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_enrollment`
 --
 
-CREATE TABLE `Class_Enrollment` (
+CREATE TABLE `class_enrollment` (
   `CE_Num` int(6) NOT NULL,
   `UIN` int(9) NOT NULL,
   `Class_ID` int(6) NOT NULL,
@@ -97,21 +140,21 @@ CREATE TABLE `Class_Enrollment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `College_Student`
+-- Table structure for table `college_student`
 --
 
-CREATE TABLE `College_Student` (
+CREATE TABLE `college_student` (
   `UIN` int(9) NOT NULL,
   `Gender` varchar(20) DEFAULT NULL,
-  `Hispanic/Latino` binary(3) DEFAULT NULL,
+  `Hispanic_Latino` varchar(3) DEFAULT NULL,
   `Race` varchar(20) DEFAULT NULL,
-  `U.S. Citizen` binary(3) DEFAULT NULL,
-  `First_Generation` binary(3) DEFAULT NULL,
+  `USCitizen` varchar(3) DEFAULT NULL,
+  `First_Generation` varchar(3) DEFAULT NULL,
   `DoB` date DEFAULT NULL,
   `GPA` float DEFAULT NULL,
   `Major` varchar(50) DEFAULT NULL,
-  `Minor #1` varchar(50) DEFAULT NULL,
-  `Minor #2` varchar(50) DEFAULT NULL,
+  `Minor1` varchar(50) DEFAULT NULL,
+  `Minor2` varchar(50) DEFAULT NULL,
   `Expected_Graduation` smallint(4) DEFAULT NULL,
   `School` varchar(128) DEFAULT NULL,
   `Current_Classification` varchar(128) DEFAULT NULL,
@@ -119,13 +162,20 @@ CREATE TABLE `College_Student` (
   `Phone` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `college_student`
+--
+
+INSERT INTO `college_student` (`UIN`, `Gender`, `Hispanic_Latino`, `Race`, `USCitizen`, `First_Generation`, `DoB`, `GPA`, `Major`, `Minor1`, `Minor2`, `Expected_Graduation`, `School`, `Current_Classification`, `Student_Type`, `Phone`) VALUES
+(1, 'bb', 'aa', 'asdasd', 'asd', 'asd', '2023-12-08', 0.02, 'asdas', 'dasdasda', 'asdas', 1, 'asds', 'asdasdas', 'asdasd', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Documentation`
+-- Table structure for table `documentation`
 --
 
-CREATE TABLE `Documentation` (
+CREATE TABLE `documentation` (
   `Doc_Num` int(6) NOT NULL,
   `App_Num` int(6) NOT NULL,
   `Link` varchar(1024) DEFAULT NULL,
@@ -135,10 +185,10 @@ CREATE TABLE `Documentation` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Event`
+-- Table structure for table `event`
 --
 
-CREATE TABLE `Event` (
+CREATE TABLE `event` (
   `Event_ID` int(6) NOT NULL,
   `UIN` int(9) NOT NULL,
   `Program_Num` int(6) NOT NULL,
@@ -153,10 +203,10 @@ CREATE TABLE `Event` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Event_Tracking`
+-- Table structure for table `event_tracking`
 --
 
-CREATE TABLE `Event_Tracking` (
+CREATE TABLE `event_tracking` (
   `ET_Num` int(6) NOT NULL,
   `Event_ID` int(6) NOT NULL,
   `UIN` int(9) NOT NULL
@@ -165,23 +215,30 @@ CREATE TABLE `Event_Tracking` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Internship`
+-- Table structure for table `internship`
 --
 
-CREATE TABLE `Internship` (
+CREATE TABLE `internship` (
   `Intern_ID` int(6) NOT NULL,
   `Name` varchar(64) DEFAULT NULL,
   `Description` varchar(2048) DEFAULT NULL,
   `is_Gov` binary(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `internship`
+--
+
+INSERT INTO `internship` (`Intern_ID`, `Name`, `Description`, `is_Gov`) VALUES
+(1, 'asdasd', 'asdasd', 0x0100);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Intern_App`
+-- Table structure for table `intern_app`
 --
 
-CREATE TABLE `Intern_App` (
+CREATE TABLE `intern_app` (
   `IA_Num` int(6) NOT NULL,
   `UIN` int(9) NOT NULL,
   `Intern_ID` int(6) NOT NULL,
@@ -192,22 +249,47 @@ CREATE TABLE `Intern_App` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Programs`
+-- Table structure for table `programs`
 --
 
-CREATE TABLE `Programs` (
+CREATE TABLE `programs` (
   `Program_Num` int(6) NOT NULL,
   `Name` varchar(64) DEFAULT NULL,
   `Description` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `programs`
+--
+
+INSERT INTO `programs` (`Program_Num`, `Name`, `Description`) VALUES
+(1, 'asdasd', 'asdasdasdasd');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Track`
+-- Stand-in structure for view `students`
+-- (See below for the actual view)
+--
+CREATE TABLE `students` (
+`UIN` int(9)
+,`First_Name` varchar(128)
+,`M_Initial` char(1)
+,`Last_Name` varchar(128)
+,`Email` varchar(256)
+,`Discord_Name` varchar(32)
+,`Gender` varchar(20)
+,`Race` varchar(20)
+,`Hispanic_Latino` varchar(3)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `track`
 --
 
-CREATE TABLE `Track` (
+CREATE TABLE `track` (
   `Program` int(6) NOT NULL,
   `Student_Num` int(9) NOT NULL,
   `Tracking_Num` int(6) NOT NULL
@@ -216,10 +298,10 @@ CREATE TABLE `Track` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `User` (
+CREATE TABLE `user` (
   `UIN` int(9) NOT NULL,
   `First_Name` varchar(128) DEFAULT NULL,
   `M_Initial` char(1) DEFAULT NULL,
@@ -232,122 +314,151 @@ CREATE TABLE `User` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `User`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `User` (`UIN`, `First_Name`, `M_Initial`, `Last_Name`, `Username`, `Password`, `User_Type`, `Email`, `Discord_Name`) VALUES
-(1, 'test', 'e', 'test', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`UIN`, `First_Name`, `M_Initial`, `Last_Name`, `Username`, `Password`, `User_Type`, `Email`, `Discord_Name`) VALUES
+(1, 'test', 'e', 'test', 'john', 'Smith', 'Admin', NULL, NULL),
+(2, 'asdasd', 's', '', NULL, NULL, '', '', ''),
+(3, NULL, NULL, NULL, 'student', 'student', NULL, NULL, NULL);
 
 --
--- Triggers `User`
+-- Triggers `user`
 --
 DELIMITER $$
-CREATE TRIGGER `Delete` BEFORE DELETE ON `User` FOR EACH ROW DELETE FROM College_Student WHERE UIN = old.UIN
+CREATE TRIGGER `Delete` BEFORE DELETE ON `user` FOR EACH ROW DELETE FROM College_Student WHERE UIN = old.UIN
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `appdocs`
+--
+DROP TABLE IF EXISTS `appdocs`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `appdocs`  AS SELECT `a`.`App_Num` AS `App_Num`, `a`.`Program_Num` AS `Program_Num`, `a`.`UIN` AS `UIN`, `b`.`Doc_Num` AS `Doc_Num`, `b`.`Link` AS `Link`, `b`.`Doc_Type` AS `Doc_Type` FROM (`application` `a` join `documentation` `b`) WHERE `a`.`App_Num` = `b`.`App_Num` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `classname`
+--
+DROP TABLE IF EXISTS `classname`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `classname`  AS SELECT `a`.`UIN` AS `UIN`, `b`.`Name` AS `Name`, `a`.`Status` AS `Status`, `a`.`Semester` AS `Semester`, `a`.`Year` AS `Year` FROM (`class_enrollment` `a` join `classes` `b`) WHERE `a`.`Class_ID` = `b`.`Class_ID` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `students`
+--
+DROP TABLE IF EXISTS `students`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students`  AS SELECT `a`.`UIN` AS `UIN`, `a`.`First_Name` AS `First_Name`, `a`.`M_Initial` AS `M_Initial`, `a`.`Last_Name` AS `Last_Name`, `a`.`Email` AS `Email`, `a`.`Discord_Name` AS `Discord_Name`, `b`.`Gender` AS `Gender`, `b`.`Race` AS `Race`, `b`.`Hispanic_Latino` AS `Hispanic_Latino` FROM (`user` `a` join `college_student` `b`) WHERE `a`.`UIN` = `b`.`UIN` ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Application`
+-- Indexes for table `application`
 --
-ALTER TABLE `Application`
+ALTER TABLE `application`
   ADD PRIMARY KEY (`App_Num`),
   ADD KEY `Program_Num` (`Program_Num`) USING BTREE,
   ADD KEY `UIN` (`UIN`) USING BTREE;
 
 --
--- Indexes for table `Ceritification`
+-- Indexes for table `ceritification`
 --
-ALTER TABLE `Ceritification`
+ALTER TABLE `ceritification`
   ADD PRIMARY KEY (`Cert_ID`);
 
 --
--- Indexes for table `Cert_Enrollment`
+-- Indexes for table `cert_enrollment`
 --
-ALTER TABLE `Cert_Enrollment`
+ALTER TABLE `cert_enrollment`
   ADD PRIMARY KEY (`CertE_Num`),
   ADD KEY `Cert_ID` (`Cert_ID`),
   ADD KEY `Program_Num` (`Program_Num`),
   ADD KEY `UIN` (`UIN`);
 
 --
--- Indexes for table `Classes`
+-- Indexes for table `classes`
 --
-ALTER TABLE `Classes`
+ALTER TABLE `classes`
   ADD PRIMARY KEY (`Class_ID`);
 
 --
--- Indexes for table `Class_Enrollment`
+-- Indexes for table `class_enrollment`
 --
-ALTER TABLE `Class_Enrollment`
+ALTER TABLE `class_enrollment`
   ADD PRIMARY KEY (`CE_Num`),
   ADD KEY `UIN` (`UIN`) USING BTREE,
   ADD KEY `Class_ID` (`Class_ID`) USING BTREE;
 
 --
--- Indexes for table `College_Student`
+-- Indexes for table `college_student`
 --
-ALTER TABLE `College_Student`
+ALTER TABLE `college_student`
   ADD PRIMARY KEY (`UIN`);
 
 --
--- Indexes for table `Documentation`
+-- Indexes for table `documentation`
 --
-ALTER TABLE `Documentation`
+ALTER TABLE `documentation`
   ADD PRIMARY KEY (`Doc_Num`),
   ADD KEY `App_Num` (`App_Num`);
 
 --
--- Indexes for table `Event`
+-- Indexes for table `event`
 --
-ALTER TABLE `Event`
+ALTER TABLE `event`
   ADD PRIMARY KEY (`Event_ID`),
   ADD KEY `UIN` (`UIN`),
   ADD KEY `Program_Num` (`Program_Num`);
 
 --
--- Indexes for table `Event_Tracking`
+-- Indexes for table `event_tracking`
 --
-ALTER TABLE `Event_Tracking`
+ALTER TABLE `event_tracking`
   ADD PRIMARY KEY (`ET_Num`),
   ADD KEY `Event_ID` (`Event_ID`),
   ADD KEY `UIN` (`UIN`);
 
 --
--- Indexes for table `Internship`
+-- Indexes for table `internship`
 --
-ALTER TABLE `Internship`
+ALTER TABLE `internship`
   ADD PRIMARY KEY (`Intern_ID`);
 
 --
--- Indexes for table `Intern_App`
+-- Indexes for table `intern_app`
 --
-ALTER TABLE `Intern_App`
+ALTER TABLE `intern_app`
   ADD PRIMARY KEY (`IA_Num`),
   ADD KEY `UIN` (`UIN`),
   ADD KEY `Intern_ID` (`Intern_ID`);
 
 --
--- Indexes for table `Programs`
+-- Indexes for table `programs`
 --
-ALTER TABLE `Programs`
+ALTER TABLE `programs`
   ADD PRIMARY KEY (`Program_Num`);
 
 --
--- Indexes for table `Track`
+-- Indexes for table `track`
 --
-ALTER TABLE `Track`
+ALTER TABLE `track`
   ADD PRIMARY KEY (`Tracking_Num`),
   ADD KEY `Program` (`Program`),
   ADD KEY `Student_Num` (`Student_Num`);
 
 --
--- Indexes for table `User`
+-- Indexes for table `user`
 --
-ALTER TABLE `User`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`UIN`);
 
 --
@@ -355,148 +466,148 @@ ALTER TABLE `User`
 --
 
 --
--- AUTO_INCREMENT for table `Application`
+-- AUTO_INCREMENT for table `application`
 --
-ALTER TABLE `Application`
+ALTER TABLE `application`
   MODIFY `App_Num` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Ceritification`
+-- AUTO_INCREMENT for table `ceritification`
 --
-ALTER TABLE `Ceritification`
-  MODIFY `Cert_ID` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ceritification`
+  MODIFY `Cert_ID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Cert_Enrollment`
+-- AUTO_INCREMENT for table `cert_enrollment`
 --
-ALTER TABLE `Cert_Enrollment`
+ALTER TABLE `cert_enrollment`
   MODIFY `CertE_Num` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Classes`
+-- AUTO_INCREMENT for table `classes`
 --
-ALTER TABLE `Classes`
-  MODIFY `Class_ID` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `classes`
+  MODIFY `Class_ID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Class_Enrollment`
+-- AUTO_INCREMENT for table `class_enrollment`
 --
-ALTER TABLE `Class_Enrollment`
+ALTER TABLE `class_enrollment`
   MODIFY `CE_Num` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `College_Student`
+-- AUTO_INCREMENT for table `college_student`
 --
-ALTER TABLE `College_Student`
-  MODIFY `UIN` int(9) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `college_student`
+  MODIFY `UIN` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Documentation`
+-- AUTO_INCREMENT for table `documentation`
 --
-ALTER TABLE `Documentation`
+ALTER TABLE `documentation`
   MODIFY `Doc_Num` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Event`
+-- AUTO_INCREMENT for table `event`
 --
-ALTER TABLE `Event`
-  MODIFY `Event_ID` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `event`
+  MODIFY `Event_ID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Event_Tracking`
+-- AUTO_INCREMENT for table `event_tracking`
 --
-ALTER TABLE `Event_Tracking`
+ALTER TABLE `event_tracking`
   MODIFY `ET_Num` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Internship`
+-- AUTO_INCREMENT for table `internship`
 --
-ALTER TABLE `Internship`
-  MODIFY `Intern_ID` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `internship`
+  MODIFY `Intern_ID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Intern_App`
+-- AUTO_INCREMENT for table `intern_app`
 --
-ALTER TABLE `Intern_App`
+ALTER TABLE `intern_app`
   MODIFY `IA_Num` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Programs`
+-- AUTO_INCREMENT for table `programs`
 --
-ALTER TABLE `Programs`
-  MODIFY `Program_Num` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `programs`
+  MODIFY `Program_Num` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Track`
+-- AUTO_INCREMENT for table `track`
 --
-ALTER TABLE `Track`
+ALTER TABLE `track`
   MODIFY `Tracking_Num` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `User`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `User`
-  MODIFY `UIN` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `user`
+  MODIFY `UIN` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `Application`
+-- Constraints for table `application`
 --
-ALTER TABLE `Application`
-  ADD CONSTRAINT `Application_ibfk_1` FOREIGN KEY (`Program_Num`) REFERENCES `Programs` (`Program_Num`),
-  ADD CONSTRAINT `Application_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `College_Student` (`UIN`);
+ALTER TABLE `application`
+  ADD CONSTRAINT `Application_ibfk_1` FOREIGN KEY (`Program_Num`) REFERENCES `programs` (`Program_Num`),
+  ADD CONSTRAINT `Application_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `college_student` (`UIN`);
 
 --
--- Constraints for table `Cert_Enrollment`
+-- Constraints for table `cert_enrollment`
 --
-ALTER TABLE `Cert_Enrollment`
-  ADD CONSTRAINT `Cert_Enrollment_ibfk_1` FOREIGN KEY (`Program_Num`) REFERENCES `Programs` (`Program_Num`),
-  ADD CONSTRAINT `Cert_Enrollment_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `College_Student` (`UIN`),
-  ADD CONSTRAINT `Cert_Enrollment_ibfk_3` FOREIGN KEY (`Cert_ID`) REFERENCES `Ceritification` (`Cert_ID`);
+ALTER TABLE `cert_enrollment`
+  ADD CONSTRAINT `Cert_Enrollment_ibfk_1` FOREIGN KEY (`Program_Num`) REFERENCES `programs` (`Program_Num`),
+  ADD CONSTRAINT `Cert_Enrollment_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `college_student` (`UIN`),
+  ADD CONSTRAINT `Cert_Enrollment_ibfk_3` FOREIGN KEY (`Cert_ID`) REFERENCES `ceritification` (`Cert_ID`);
 
 --
--- Constraints for table `Class_Enrollment`
+-- Constraints for table `class_enrollment`
 --
-ALTER TABLE `Class_Enrollment`
-  ADD CONSTRAINT `Class_Enrollment_ibfk_1` FOREIGN KEY (`UIN`) REFERENCES `College_Student` (`UIN`),
-  ADD CONSTRAINT `Class_Enrollment_ibfk_2` FOREIGN KEY (`Class_ID`) REFERENCES `Classes` (`Class_ID`);
+ALTER TABLE `class_enrollment`
+  ADD CONSTRAINT `Class_Enrollment_ibfk_1` FOREIGN KEY (`UIN`) REFERENCES `college_student` (`UIN`),
+  ADD CONSTRAINT `Class_Enrollment_ibfk_2` FOREIGN KEY (`Class_ID`) REFERENCES `classes` (`Class_ID`);
 
 --
--- Constraints for table `Documentation`
+-- Constraints for table `documentation`
 --
-ALTER TABLE `Documentation`
-  ADD CONSTRAINT `Documentation_ibfk_1` FOREIGN KEY (`App_Num`) REFERENCES `Application` (`App_Num`);
+ALTER TABLE `documentation`
+  ADD CONSTRAINT `Documentation_ibfk_1` FOREIGN KEY (`App_Num`) REFERENCES `application` (`App_Num`);
 
 --
--- Constraints for table `Event`
+-- Constraints for table `event`
 --
-ALTER TABLE `Event`
-  ADD CONSTRAINT `EventProgram` FOREIGN KEY (`Program_Num`) REFERENCES `Programs` (`Program_Num`),
-  ADD CONSTRAINT `EventUIN` FOREIGN KEY (`UIN`) REFERENCES `User` (`UIN`);
+ALTER TABLE `event`
+  ADD CONSTRAINT `EventProgram` FOREIGN KEY (`Program_Num`) REFERENCES `programs` (`Program_Num`),
+  ADD CONSTRAINT `EventUIN` FOREIGN KEY (`UIN`) REFERENCES `user` (`UIN`);
 
 --
--- Constraints for table `Event_Tracking`
+-- Constraints for table `event_tracking`
 --
-ALTER TABLE `Event_Tracking`
-  ADD CONSTRAINT `Event_Tracking_ibfk_1` FOREIGN KEY (`Event_ID`) REFERENCES `Event` (`Event_ID`),
-  ADD CONSTRAINT `Event_Tracking_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `User` (`UIN`);
+ALTER TABLE `event_tracking`
+  ADD CONSTRAINT `Event_Tracking_ibfk_1` FOREIGN KEY (`Event_ID`) REFERENCES `event` (`Event_ID`),
+  ADD CONSTRAINT `Event_Tracking_ibfk_2` FOREIGN KEY (`UIN`) REFERENCES `user` (`UIN`);
 
 --
--- Constraints for table `Intern_App`
+-- Constraints for table `intern_app`
 --
-ALTER TABLE `Intern_App`
-  ADD CONSTRAINT `Intern_App_ibfk_1` FOREIGN KEY (`UIN`) REFERENCES `College_Student` (`UIN`),
-  ADD CONSTRAINT `Intern_App_ibfk_2` FOREIGN KEY (`Intern_ID`) REFERENCES `Internship` (`Intern_ID`);
+ALTER TABLE `intern_app`
+  ADD CONSTRAINT `Intern_App_ibfk_1` FOREIGN KEY (`UIN`) REFERENCES `college_student` (`UIN`),
+  ADD CONSTRAINT `Intern_App_ibfk_2` FOREIGN KEY (`Intern_ID`) REFERENCES `internship` (`Intern_ID`);
 
 --
--- Constraints for table `Track`
+-- Constraints for table `track`
 --
-ALTER TABLE `Track`
-  ADD CONSTRAINT `Track_ibfk_1` FOREIGN KEY (`Student_Num`) REFERENCES `College_Student` (`UIN`),
-  ADD CONSTRAINT `Track_ibfk_2` FOREIGN KEY (`Program`) REFERENCES `Programs` (`Program_Num`);
+ALTER TABLE `track`
+  ADD CONSTRAINT `Track_ibfk_1` FOREIGN KEY (`Student_Num`) REFERENCES `college_student` (`UIN`),
+  ADD CONSTRAINT `Track_ibfk_2` FOREIGN KEY (`Program`) REFERENCES `programs` (`Program_Num`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
