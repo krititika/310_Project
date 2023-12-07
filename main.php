@@ -82,7 +82,7 @@
                 <a href="Admin_authentication/AdminManage.php"><button>Admin Account Management</button></a>
 
                 <h2>Program Information Management</h2>
-                <button type="button">Program Information Management</button>
+                <a href="Admin-ProgramManagement/programInfo.php"><button>Program Information Management</button></a>
 
                 <h2>Program Progress Tracking</h2>
                 <button type="button">Program Progress Tracking</button>
@@ -106,7 +106,7 @@
 
     <!-- Button for Document Upload and Management -->
     <h2>Document Upload and Management</h2>
-    <button type="button">Document Upload and Management</button>
+    <a href="Student-DocumentManagement/documentManagement.php"><button>Document upload and Management</button></a>
             </div>
         <?php endif ?>
     </div>
