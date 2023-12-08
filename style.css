@@ -38,6 +38,13 @@ h2 {
     color: #fff;
 }
 
+h3 {
+    text-align: center;
+    padding: 10px 16px;
+    background-color: #232347;
+    color: #d4cdcd;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -59,12 +66,65 @@ background-color: #dddddd;
     padding: 20px;
 }
 
+.action_buttons {
+    margin: 2rem;
+}
+
 .progress {
-    width: 100px;
+    width: 160px;
     padding: 8px;
     margin: 8px;
     margin-top: 16px;
-    background-color: #8f4242;
+    background-color: #0a0a31;
     color: #eee;
     border-radius: 8px;
+}
+
+.progress:hover {
+    background-color: #1a1aa8;
+    cursor: pointer;
+}
+
+.create_progress_box {
+    display: flex;
+    justify-content: center;
+}
+
+.create_progress {
+    background-color: #dfdede;
+    margin: 2rem;
+    padding: 2rem;
+    width: 80%;
+    border: #b1b0b0;
+    border-width: 1px;
+    border-radius: 20px;
+    box-shadow: 5px 10px 8px #b1b0b0;
+}
+
+.create_progress_hidden {
+    display: none;
+}
+
+.div_button {
+    cursor: pointer;
+}
+
+.delete_progress_box {
+    display: flex;
+    justify-content: end;
+}
+
+.delete_progress {
+    display: block;
+    color: #fff;
+    background-color: #8f4242;
+    width: 500px;
+    padding: 2rem;
+    border: #b1b0b0;
+    border-width: 1px;
+    border-radius: 20px;
+    box-shadow: 5px 10px 8px #b1b0b0;}
+
+.delete_progress_hidden {
+    display: none;
 }

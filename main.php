@@ -1,10 +1,11 @@
 <?php
-    include_once 'includes/startSession.php';
-    include_once 'includes/DbConnect.php';
+include_once 'includes/startSession.php';
+include_once 'includes/DbConnect.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,9 +36,13 @@
 
         .button-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             margin-top: 20px;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: stretch;
         }
 
         button {
@@ -49,6 +54,8 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
+            width: 20rem;
+            min-height: 5rem;
         }
 
         button:hover {
@@ -68,49 +75,68 @@
             text-align: center;
             margin-bottom: 20px;
         }
+
+        .admin_button {
+            background-color: #707070;
+        }
+
+        .admin_button:hover {
+            background-color: #505050;
+        }
     </style>
 </head>
+
 <body>
 
     <h1>Welcome to your Database</h1>
-    
+
     <div class="container">
         <?php if ($_SESSION["usertype"] == "Admin"): ?>
-            <div class="admin-info">Hello Admin:</div>
+            <div class="admin-info">Hello Admin:
+                <?php echo $_SESSION["username"] ?>
+            </div>
 
             <div class="button-container">
-                <a href="Admin_authentication/AdminManage.php"><button>Admin Account Management</button></a>
+                <a href="Admin_authentication/AdminManage.php">
+                    <button class="admin_button">Admin Account Management</button>
+                </a>
 
-                <h2>Program Information Management</h2>
-                <a href="Admin-ProgramManagement/programInfo.php"><button>Program Information Management</button></a>
+                <a href="Admin-ProgramManagement/programInfo.php">
+                    <button class="admin_button">Program Information Management</button>
+                </a>
 
-                <h2>Program Progress Tracking</h2>
-                <a href="Admin-ProgramProgress/programProgress.php"><button type="button">Program Progress Tracking</button></a>
+                <a href="Admin-ProgramProgress/programProgress.php">
+                    <button class="admin_button">Program Progress Tracking</button>
+                </a>
 
-                <h2>Event Management</h2>
-                <a href="Admin-Events/events.php"><button>Event Management</button></a>
+                <a href="Admin-Events/events.php">
+                    <button class="admin_button">Event Management</button>
+                </a>
 
             </div>
         <?php else: ?>
-            <div class="student-info">Student functionalities:</div>
+            <div class="student-info">Hello Student:
+                <?php echo $_SESSION["username"] ?>
+            </div>
             <div class="button-container">
-                <a href="Student_authentication/StudentManage.php"><button>Student Account Management</button></a>
+                <a href="Student_authentication/StudentManage.php">
+                    <button>Student Account Management</button>
+                </a>
 
-                    <!-- Button for Application Information Management -->
-                    <h2>Application Information Management</h2>
-                    <a href="/Student-ApplicationIM/applications.php">
-                        <button type="button">Application Information Management</button>
-                    </a>
+                <a href="/Student-ApplicationIM/applications.php">
+                    <button type="button">Application Information Management</button>
+                </a>
 
-    <!-- Button for Program Progress Tracking -->
-    <h2>Program Progress Tracking</h2>
-    <a href="Student-ProgramTrack/programtrack.php"><button>Program Progress Tracking</button></a>
+                <a href="Student-ProgramTrack/programtrack.php">
+                    <button>Program Progress Tracking</button>
+                </a>
 
-    <!-- Button for Document Upload and Management -->
-    <h2>Document Upload and Management</h2>
-    <a href="Student-DocumentManagement/documentManagement.php"><button>Document upload and Management</button></a>
+                <a href="Student-DocumentManagement/documentManagement.php">
+                    <button>Document upload and Management</button>
+                </a>
             </div>
         <?php endif ?>
     </div>
 </body>
+
 </html>
