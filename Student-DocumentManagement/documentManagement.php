@@ -57,7 +57,7 @@
             </form>
             <form action="deleteDocument.php" class="float-child" method="post">
                 Delete Document<br>
-                Document id: <select type="number" name="document-id" required>
+                Document id: <select type="number" name="document-id">
                     <?php
                         $sql = "SELECT * FROM Application
                         WHERE UIN = ".$_SESSION["UIN"].";";
@@ -67,7 +67,7 @@
                             WHERE App_Num = ".$row["App_Num"].";";
                             $resultDoc = mysqli_query($conn, $sql);
                             while($rowDoc = mysqli_fetch_assoc($resultDoc)){
-                                echo "<option value=".$row["Doc_Num"].">".$rowDoc["Doc_Num"]."</option>";
+                                echo "<option value=".$rowDoc["Doc_Num"].">".$rowDoc["Doc_Num"]."</option>";
                             }
                         }
                     ?>
@@ -89,8 +89,9 @@
             </form>
             <form action="replaceDocument.php" class="float-child" method="post" enctype="multipart/form-data">
                 Replace Document<br>
-                File: <input type="file" name="file" accept=".pdf"required><br>
+                File: <input type="file" name="file" accept=".pdf" required><br>
                 Document id: <select type="number" name="document-id" required>
+                <option value=""></option>
                     <?php
                         $sql = "SELECT * FROM Application
                         WHERE UIN = ".$_SESSION["UIN"].";";
@@ -100,7 +101,7 @@
                             WHERE App_Num = ".$row["App_Num"].";";
                             $resultDoc = mysqli_query($conn, $sql);
                             while($rowDoc = mysqli_fetch_assoc($resultDoc)){
-                                echo "<option value=".$row["Doc_Num"].">".$rowDoc["Doc_Num"]."</option>";
+                                echo "<option value=".$rowDoc["Doc_Num"].">".$rowDoc["Doc_Num"]."</option>";
                             }
                         }
                     ?>
