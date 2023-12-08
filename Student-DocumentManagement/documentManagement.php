@@ -57,7 +57,8 @@
             </form>
             <form action="deleteDocument.php" class="float-child" method="post">
                 Delete Document<br>
-                Document id: <select type="number" name="document-id">
+                Document id: <select type="number" name="document-id" required>
+                <option value=""></option>
                     <?php
                         $sql = "SELECT * FROM Application
                         WHERE UIN = ".$_SESSION["UIN"].";";
