@@ -98,7 +98,9 @@
 
                     <!-- Button for Application Information Management -->
                     <h2>Application Information Management</h2>
-    <button type="button">Application Information Management</button>
+                    <a href="/Student-ApplicationIM/applications.php">
+                        <button type="button">Application Information Management</button>
+                    </a>
 
     <!-- Button for Program Progress Tracking -->
     <h2>Program Progress Tracking</h2>

@@ -1,3 +1,43 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 30px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+
+a:active {
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007BFF;
+    color: #fff;
+}
+h2 {
+    text-align: center;
+    padding: 14px 20px;
+    background-color: #0a0a31;
+    color: #fff;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -17,4 +57,14 @@ background-color: #dddddd;
     width: auto;
     float: left;
     padding: 20px;
-}  
+}
+
+.progress {
+    width: 100px;
+    padding: 8px;
+    margin: 8px;
+    margin-top: 16px;
+    background-color: #8f4242;
+    color: #eee;
+    border-radius: 8px;
+}
